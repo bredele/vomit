@@ -2,6 +2,7 @@
 
 module.exports = function(tag, content) {
   var el = document.createElement(tag);
-  el.innerHTML = content;
+  if(typeof content === 'string') el.innerHTML = content;
+  else if(content) el.appendChild(content);
   return el;
 };

@@ -17,8 +17,14 @@ tape('should create any kind of dom element', function(assert) {
   assert.equal(el.outerHTML, '<button></button>');
 });
 
-tape('should set element inner HTML', function(assert) {
+tape('should set text as innerHTML', function(assert) {
   assert.plan(1);
   var el = vomit('button', 'hello world!');
   assert.equal(el.outerHTML, '<button>hello world!</button>');
+});
+
+tape('should set other vomit element as innerHTML', function(assert) {
+  assert.plan(1);
+  var el = vomit('button', vomit('span', 'hello world!'));
+  assert.equal(el.outerHTML, '<button><span>hello world!</span></button>');
 });
