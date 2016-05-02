@@ -1,5 +1,5 @@
 
 
-module.exports = function() {
-  return document.createElement('div');
+module.exports = function(tag) {
+  return document.createElement(tag);
 };
