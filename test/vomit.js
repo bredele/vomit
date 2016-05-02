@@ -30,3 +30,11 @@ tape('should set other vomit element as innerHTML', function(assert) {
   var el = vomit('button', vomit('span', 'hello world!'));
   assert.equal(el.outerHTML, '<button><span>hello world!</span></button>');
 });
+
+tape('should set returned value of a function as innerHTML', function(assert) {
+  assert.plan(1);
+  var el = vomit('button', function() {
+    return 'hello world!';
+  });
+  assert.equal(el.outerHTML, '<button>hello world!</button>');
+});
