@@ -4,7 +4,7 @@
   "description": "virtual dom which does not suck",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/*.js | tape-run"
+    "test": "browserify test/*.js | tape-run"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/bredele/vomit#readme",
   "devDependencies": {
-    "tape": "^4.5.1",
+    "browserify": "^13.0.0",
     "tape-run": "^2.1.3"
   }
 }
