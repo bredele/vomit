@@ -4,7 +4,7 @@
   "description": "virtual dom which does not suck",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/*.js"
+    "test": "tape test/*.js | tape-run"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/bredele/vomit/issues"
   },
-  "homepage": "https://github.com/bredele/vomit#readme"
+  "homepage": "https://github.com/bredele/vomit#readme",
+  "devDependencies": {
+    "tape": "^4.5.1",
+    "tape-run": "^2.1.3"
+  }
 }
