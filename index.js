@@ -1,5 +1,7 @@
 
 
-module.exports = function(tag) {
-  return document.createElement(tag);
+module.exports = function(tag, content) {
+  var el = document.createElement(tag);
+  el.innerHTML = content;
+  return el;
 };
