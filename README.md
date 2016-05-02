@@ -1,3 +1,3 @@
 # vomit
 
- > **v**~~irtual d~~**om** it**~~ sucks~~
+ > **v**~~irtual d~~**om it**~~ sucks~~
