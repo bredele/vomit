@@ -1,2 +1,3 @@
 # vomit
-virtual dom which doesn't suck
+
+ > **v**~~irtual d~~**om** it**~~ sucks~~
