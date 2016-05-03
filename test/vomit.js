@@ -4,6 +4,8 @@
 
 var tape = require('tape');
 var vomit = require('..');
+var Stream = require('stream');
+
 
 tape('create dom element', function(assert) {
   assert.plan(1);
@@ -47,3 +49,18 @@ tape('should set array of inner HTML as children', function(assert) {
   ]);
   assert.equal(el.outerHTML, '<ul>hello <span>world!</span></ul>');
 });
+
+tape('should set event emitter based interface as inner element', function() {
+  assert.plan(1);
+  var src = stream('hello world!');
+  var el = vomit('button', src);
+  assert.equal(el.outerHTML, '<button>hello world!</button>');
+});
+
+
+function stream(data) {
+  var src = new Stream();
+  src.readable = true;
+  src.emit('data', data);
+  return src;
+}

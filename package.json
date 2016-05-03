@@ -23,6 +23,7 @@
   "homepage": "https://github.com/bredele/vomit#readme",
   "devDependencies": {
     "browserify": "^13.0.0",
+    "stream": "0.0.2",
     "tape-run": "^2.1.3"
   }
 }
