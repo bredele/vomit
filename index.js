@@ -1,4 +1,11 @@
 
+/**
+ * Expose 'vomit'.
+ *
+ * @param {String} tag
+ * @param {Element|Function|String|Array} content
+ * @api public
+ */
 
 module.exports = function(tag, content) {
   var el = document.createElement(tag);
@@ -6,6 +13,14 @@ module.exports = function(tag, content) {
   return el;
 };
 
+
+/**
+ * Append inner element(s).
+ *
+ * @param {Element} el
+ * @param {Element|Function|String|Array} content
+ * @api private
+ */
 
 function append(el, content) {
   if(content) {
@@ -16,6 +31,16 @@ function append(el, content) {
   }
 }
 
+
+/**
+ * Append fragment of elements.
+ *
+ * It is more performant to compute elements
+ * into a fragment to voir reflow and repaints.
+ *
+ * @param {Array} arr
+ * @api private
+ */
 
 function fragment(arr) {
   var frag = document.createDocumentFragment();
