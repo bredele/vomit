@@ -50,17 +50,22 @@ tape('should set array of inner HTML as children', function(assert) {
   assert.equal(el.outerHTML, '<ul>hello <span>world!</span></ul>');
 });
 
-tape('should set event emitter based interface as inner element', function() {
+tape('should set event emitter based interface as inner element', function(assert) {
   assert.plan(1);
-  var src = stream('hello world!');
+  var src = stream();
   var el = vomit('button', src);
+  src.emit('data', 'hello world!');
   assert.equal(el.outerHTML, '<button>hello world!</button>');
 });
 
 
-function stream(data) {
+/**
+ * Create stream.
+ * @api private
+ */
+
+function stream() {
   var src = new Stream();
   src.readable = true;
-  src.emit('data', data);
   return src;
 }

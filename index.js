@@ -27,6 +27,11 @@ function append(el, content) {
     if(typeof content === 'function') content = content();
     if(typeof content === 'string') content = document.createTextNode(content);
     if(content instanceof Array) content = fragment(content);
+    else if(content.on) {
+      return content.on('data', function(data) {
+        append(el, data);
+      });
+    }
     el.appendChild(content);
   }
 }
