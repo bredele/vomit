@@ -80,12 +80,12 @@ A vomit function can return text, DOM elements, arrays and more (see below).
 ### stream
 
 If you are trying to build applications with I/O bound (such as XHR, WebSockets, WebRTC, etc) wouldn't it be
-great if you could easily interface with all these things? Vomit favorite's junk food is [streams](). With streams, vomit allows you to incrementally build DOM nodes as soon as data is available. Imagine an Ajax streams that fetch some data on a third server and return a title:
+great if you could easily interface with all these things? Vomit favorite's junk food is [streams](). With streams, vomit allows you to incrementally build DOM nodes as soon as data is available. Imagine an Ajax streams that fetches some data on a third server and returns a title:
 
 ```js
 vomit('h1', ajax);
 ```
-This example is silly! Let's do something worth your time...what about an Ajax stream that fetch a list of junk food:
+This example is silly! Let's do something worth your time...what about an Ajax stream that fetches a list of junk food:
 
 ```js
 var stream = ajax()

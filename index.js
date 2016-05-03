@@ -1,3 +1,9 @@
+/**
+ * Module dependencies.
+ */
+
+var morph = require('morphdom');
+
 
 /**
  * Expose 'vomit'.
@@ -8,9 +14,19 @@
  */
 
 module.exports = function(tag, content) {
-  var el = document.createElement(tag);
-  append(el, content);
-  return el;
+  var el;
+  if(typeof tag !== 'string') {
+    return function(data) {
+      var dom = tag(data);
+      if(el) morph(el, dom);
+      else el = dom;
+      return el;
+    };
+  } else {
+    el = document.createElement(tag);
+    append(el, content);
+    return el;
+  }
 };
 
 
