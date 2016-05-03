@@ -3,7 +3,7 @@
  * Expose 'vomit'.
  *
  * @param {String} tag
- * @param {Element|Function|String|Array} content
+ * @param {Element|Function|String|Array|Object} content
  * @api public
  */
 
@@ -18,7 +18,7 @@ module.exports = function(tag, content) {
  * Append inner element(s).
  *
  * @param {Element} el
- * @param {Element|Function|String|Array} content
+ * @param {Element|Function|String|Array|Object} content
  * @api private
  */
 
