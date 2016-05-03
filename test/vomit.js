@@ -38,3 +38,12 @@ tape('should set returned value of a function as innerHTML', function(assert) {
   });
   assert.equal(el.outerHTML, '<button>hello world!</button>');
 });
+
+tape('should set array of inner HTML as children', function(assert) {
+  assert.plan(1);
+  var el = vomit('ul', [
+    'hello ',
+    vomit('span', 'world!')
+  ]);
+  assert.equal(el.outerHTML, '<ul>hello <span>world!</span></ul>');
+});
