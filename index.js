@@ -24,7 +24,7 @@ module.exports = function(tag, content) {
 
 function append(el, content) {
   if(content) {
-    if(typeof content === 'function') content = content();
+    if(typeof content === 'function') content = content(el);
     if(typeof content === 'string') content = document.createTextNode(content);
     if(content instanceof Array) content = fragment(content);
     else if(content.on) {
