@@ -48,7 +48,7 @@ doesn't stop there and allows you to create disgusting concoction of functions, 
 
 ### function
 
-Functions are at the core of JavaScript. Would be bummer to not add a function as a
+Functions are at the JavaScript first class objects. Would be bummer to not add a function as a
 vomit element isn't?
 
 ```js
@@ -58,8 +58,14 @@ vomit('span', function() {
 ```
 A vomit function can return text, DOM elements, arrays and more (see below).
 
-### stream
+<!-- ### stream
+
+Stream allows vomit to asynchronously build
 
 ```js
-
-```
+vomit('div', [
+  'header',
+  vomit('main', ajax),
+  'footer'
+]);
+``` -->
