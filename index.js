@@ -4,6 +4,8 @@
 
 var morph = require('morphdom');
 var transform = require('./lib/transform');
+var attrs = require('attrs');
+var toString = Object.prototype.toString;
 
 
 /**
@@ -14,7 +16,7 @@ var transform = require('./lib/transform');
  * @api public
  */
 
-module.exports = function(tag, content) {
+module.exports = function(tag, obj, content) {
   var el;
   if(typeof tag !== 'string') {
     return transform(function(data) {
@@ -25,7 +27,7 @@ module.exports = function(tag, content) {
     });
   }
   el = document.createElement(tag);
-  append(el, content);
+  append(el, obj, content);
   return el;
 };
 
@@ -38,7 +40,12 @@ module.exports = function(tag, content) {
  * @api private
  */
 
-function append(el, content) {
+function append(el, obj, content) {
+  if(toString.call(obj) != '[object Object]' || obj.on) {
+    content = obj;
+    obj = null;
+  }
+  attrs(el, obj);
   if(content) {
     var bool = content.on;
     if(typeof content === 'function' && !bool) content = content(el);
