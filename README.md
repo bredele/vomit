@@ -3,7 +3,7 @@
 
 Makes me sick how cool is ~~virtual~~ dom :s
 
-![vomit](http://static.tumblr.com/67e9d19760f9ab511ea7142b267a0840/etrtigr/zohmqv4pn/tumblr_static_unicornpuke.jpg)
+[![vomit](http://static.tumblr.com/67e9d19760f9ab511ea7142b267a0840/etrtigr/zohmqv4pn/tumblr_static_unicornpuke.jpg)](http://requirebin.com/?gist=df0d460eb9506d5e8a17b3f33141b30b)
 
 ## Usage
 
