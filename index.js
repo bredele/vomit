@@ -3,6 +3,7 @@
  */
 
 var morph = require('morphdom');
+var Stream = require('stream');
 
 
 /**
@@ -16,12 +17,16 @@ var morph = require('morphdom');
 module.exports = function(tag, content) {
   var el;
   if(typeof tag !== 'string') {
-    return function(data) {
+    var fn = function(data) {
       var dom = tag(data);
       if(el) morph(el, dom);
       else el = dom;
       return el;
     };
+    Stream.call(fn);
+    fn.writable = true;
+    fn.pipe = Stream.prototype.pipe;
+    return fn;
   } else {
     el = document.createElement(tag);
     append(el, content);

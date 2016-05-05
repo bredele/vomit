@@ -59,14 +59,29 @@ tape('should set event emitter based interface as inner element', function(asser
 });
 
 tape('should morph elements', function(assert) {
-  assert.plan(1);
+  assert.plan(2);
   var button = vomit(function(data) {
     return vomit('button', data || 'hello');
   });
   var el = button();
+  assert.equal(typeof button, 'function');
   button('world');
   assert.equal(el.outerHTML, '<button>world</button>');
 });
+
+tape('should return a writable stream', function(assert) {
+  assert.plan(1);
+  var src = stream()
+    .pipe(vomit(function(data) {
+      return vomit('span', data);
+    }));
+
+  var el = vomit('h1', src);
+  src.emit('data', 'hello');
+  assert.equal(el.outerHTML, '<h1><span>hello</span>/h1>')
+});
+
+
 
 /**
  * Create stream.
