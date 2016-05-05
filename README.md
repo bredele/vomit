@@ -18,7 +18,7 @@ vomit('ul', arr.map(function(name) {
 }))
 ```
 
-Vomit is in currently in development, if you want to contribute or have any questions feel free to open issues.
+Vomit is currently in development, if you want to contribute or have any questions feel free to open issues.
 
 ### create element
 
