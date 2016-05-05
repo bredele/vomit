@@ -1,7 +1,7 @@
 # vomit
  > **v**~~irtual d~~**om it** ~~sucks~~
 
-Makes me sick how cool is virtual dom :s
+Makes me sick how cool is ~~virtual~~ dom :s
 
 ![vomit](http://static.tumblr.com/67e9d19760f9ab511ea7142b267a0840/etrtigr/zohmqv4pn/tumblr_static_unicornpuke.jpg)
 
