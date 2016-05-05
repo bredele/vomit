@@ -77,7 +77,7 @@ tape('should return a writable stream', function(assert) {
   });
   var el = vomit('h1', src.pipe(writer));
   src.emit('data', 'hello');
-  assert.equal(el.outerHTML, '<h1><span>hello</span>/h1>')
+  assert.equal(el.outerHTML, '<h1><span>hello</span></h1>')
 });
 
 

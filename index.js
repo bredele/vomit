@@ -3,8 +3,7 @@
  */
 
 var morph = require('morphdom');
-var Stream = require('stream');
-var Emitter = require('emitter');
+var transform = require('./lib/transform');
 
 
 /**
@@ -18,7 +17,7 @@ var Emitter = require('emitter');
 module.exports = function(tag, content) {
   var el;
   if(typeof tag !== 'string') {
-    return stream(function(data) {
+    return transform(function(data) {
       var dom = tag(data);
       if(el) morph(el, dom);
       else el = dom;
@@ -29,25 +28,6 @@ module.exports = function(tag, content) {
   append(el, content);
   return el;
 };
-
-
-/**
- * Transform a function into a stream.
- *
- * @param {Function} fn
- * @api private
- */
-
-function stream(fn) {
-  Emitter(fn);
-  Stream.call(fn);
-  fn.writable = true;
-  fn.pipe = Stream.prototype.pipe;
-  fn.write = function(data) {
-    
-  };
-  return fn;
-}
 
 
 /**
