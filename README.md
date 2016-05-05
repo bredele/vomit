@@ -3,7 +3,7 @@
 
 Makes me sick how cool is virtual dom :s
 
-## usage
+## Usage
 
 ```js
 var vomit = require('vomit');
@@ -61,10 +61,10 @@ Vomit can swallow functions and regurgitate them in order to create reusable com
 it updates your DOM everytime you call that function! At the opposite of some librairies out there such as React, vomit is using real DOM for diffing and patching.
 
 
-## composition
+## Composition
 
 Composition is at the core of vomit. As seen above, you can compose text and DOM node(s). But vomit
-doesn't stop there and allows you to create disgusting concoction of functions, streams or promises. Berk!
+doesn't stop there and allows you to create disgusting concoction of functions and/or streams. Berk!
 
 ### function
 

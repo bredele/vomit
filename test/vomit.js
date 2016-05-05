@@ -80,7 +80,17 @@ tape('should return a writable stream', function(assert) {
   assert.equal(el.outerHTML, '<h1><span>hello</span></h1>')
 });
 
-
+tape('should set attributes', function(assert) {
+  assert.plan(1);
+  var btn = vomit('button', {
+    id: 'btn',
+    class: ['hello', 'world'],
+    style: {
+      top: 100 + 'px'
+    }
+  });
+  assert.equal(btn.outerHTML, '<button id="btn" class="hello world" style="top:100px;"></button>');
+});
 
 /**
  * Create stream.
