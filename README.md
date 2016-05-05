@@ -5,6 +5,8 @@ Makes me sick how cool is virtual dom :s
 
 ## Usage
 
+Scroll down to see how to use vomit with functions, streams and others.
+
 ```js
 var vomit = require('vomit');
 var arr = ['foo', 'bar', 'beep'];
@@ -14,7 +16,8 @@ vomit('ul', arr.map(function(name) {
 }))
 ```
 
-Scroll down to see how to use vomit with functions, streams and others.
+Vomit is in currently in development, if you want to contribute or have any questions feel free
+top open issues.
 
 ### create element
 
