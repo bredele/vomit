@@ -1,6 +1,6 @@
 {
   "name": "vomit",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "virtual dom which does not suck",
   "main": "index.js",
   "scripts": {
