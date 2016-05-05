@@ -80,7 +80,7 @@ var radio = vomit('input', {
   type: function() {
     return true ? 'radio' : 'checkbox';
   }
-}');
+});
 ```
 
 ## Composition
