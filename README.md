@@ -3,6 +3,8 @@
 
 Makes me sick how cool is virtual dom :s
 
+Lightweight and fast DOM diffing/patching to compose with functions and/or streams.
+
 ## Usage
 
 ```js
@@ -60,6 +62,22 @@ list(['beep', 'boop']);
 Vomit can swallow functions and regurgitate them in order to create reusable components. What's nasty about it is that
 it updates your DOM everytime you call that function! At the opposite of some librairies out there such as React, vomit is using real DOM for diffing and patching.
 
+### element attributes
+
+Vomit can set strings, arrays, boolean or functions as attributes.
+
+```js
+var radio = vomit('input', {
+  id: 'radio',
+  class: ['hello', 'world'],
+  style: {
+    top: 200 + 'px'
+  },
+  type: function() {
+    return true ? 'radio' : 'checkbox';
+  }
+}, 'hello');
+```
 
 ## Composition
 
