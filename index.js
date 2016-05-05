@@ -4,6 +4,7 @@
 
 var morph = require('morphdom');
 var Stream = require('stream');
+var Emitter = require('emitter');
 
 
 /**
@@ -17,22 +18,34 @@ var Stream = require('stream');
 module.exports = function(tag, content) {
   var el;
   if(typeof tag !== 'string') {
-    var fn = function(data) {
+    return stream(function(data) {
       var dom = tag(data);
       if(el) morph(el, dom);
       else el = dom;
       return el;
-    };
-    Stream.call(fn);
-    fn.writable = true;
-    fn.pipe = Stream.prototype.pipe;
-    return fn;
+    });
   } else {
     el = document.createElement(tag);
     append(el, content);
     return el;
   }
 };
+
+
+/**
+ * Transform a function into a stream.
+ *
+ * @param {Function} fn
+ * @api private
+ */
+
+function stream(fn) {
+  Emitter(fn);
+  Stream.call(fn);
+  fn.writable = true;
+  fn.pipe = Stream.prototype.pipe;
+  return fn;
+}
 
 
 /**
@@ -45,14 +58,13 @@ module.exports = function(tag, content) {
 
 function append(el, content) {
   if(content) {
-    if(typeof content === 'function') content = content(el);
+    var bool = content.on;
+    if(typeof content === 'function' && !bool) content = content(el);
     if(typeof content === 'string') content = document.createTextNode(content);
     if(content instanceof Array) content = fragment(content);
-    else if(content.on) {
-      return content.on('data', function(data) {
-        append(el, data);
-      });
-    }
+    if(bool) return content.on('data', function(data) {
+      append(el, data);
+    });
     el.appendChild(content);
   }
 }

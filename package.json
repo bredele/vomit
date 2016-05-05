@@ -26,6 +26,9 @@
     "stream": "0.0.2",
     "tape-run": "^2.1.3"
   },
+  "browser": {
+    "emitter": "emitter-component"
+  },
   "dependencies": {
     "emitter-component": "^1.1.1",
     "morphdom": "^1.3.0",
