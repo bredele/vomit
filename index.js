@@ -24,11 +24,10 @@ module.exports = function(tag, content) {
       else el = dom;
       return el;
     });
-  } else {
-    el = document.createElement(tag);
-    append(el, content);
-    return el;
   }
+  el = document.createElement(tag);
+  append(el, content);
+  return el;
 };
 
 
@@ -44,6 +43,9 @@ function stream(fn) {
   Stream.call(fn);
   fn.writable = true;
   fn.pipe = Stream.prototype.pipe;
+  fn.write = function(data) {
+    
+  };
   return fn;
 }
 

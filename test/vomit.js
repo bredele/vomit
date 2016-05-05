@@ -52,7 +52,7 @@ tape('should set array of inner HTML as children', function(assert) {
 
 tape('should set event emitter based interface as inner element', function(assert) {
   assert.plan(1);
-  var src = stream();
+  var src = reader();
   var el = vomit('button', src);
   src.emit('data', 'hello world!');
   assert.equal(el.outerHTML, '<button>hello world!</button>');
@@ -71,12 +71,11 @@ tape('should morph elements', function(assert) {
 
 tape('should return a writable stream', function(assert) {
   assert.plan(1);
-  var src = stream()
-    .pipe(vomit(function(data) {
-      return vomit('span', data);
-    }));
-
-  var el = vomit('h1', src);
+  var src = reader();
+  var writer = vomit(function(data) {
+    return vomit('span', data);
+  });
+  var el = vomit('h1', src.pipe(writer));
   src.emit('data', 'hello');
   assert.equal(el.outerHTML, '<h1><span>hello</span>/h1>')
 });
@@ -88,7 +87,7 @@ tape('should return a writable stream', function(assert) {
  * @api private
  */
 
-function stream() {
+function reader() {
   var src = new Stream();
   src.readable = true;
   return src;
