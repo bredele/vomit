@@ -58,7 +58,8 @@ list(['beep', 'boop']);
 ```
 
 Vomit can swallow functions and regurgitate them in order to create reusable components. What's nasty about it is that
-it updates your DOM everytime you call that function!
+it updates your DOM everytime you call that function! At the opposite of some librairies out there such as React, vomit is using real DOM for diffing and patching.
+
 
 ## composition
 
@@ -67,7 +68,7 @@ doesn't stop there and allows you to create disgusting concoction of functions, 
 
 ### function
 
-Functions are at the JavaScript first class objects. Would be bummer to not add a function as a
+Functions are JavaScript first class objects. Would be bummer to not add a function as a
 vomit element isn't?
 
 ```js
@@ -80,12 +81,12 @@ A vomit function can return text, DOM elements, arrays and more (see below).
 ### stream
 
 If you are trying to build applications with I/O bound (such as XHR, WebSockets, WebRTC, etc) wouldn't it be
-great if you could easily interface with all these things? Vomit favorite's junk food is [streams](). With streams, vomit allows you to incrementally build DOM nodes as soon as data is available. Imagine an Ajax streams that fetches some data on a third server and returns a title:
+great if you could easily interface with all these things? Vomit favorite's junk food is [streams](https://nodejs.org/api/stream.html). With streams, vomit allows you to incrementally build DOM nodes as soon as data is available. Imagine an Ajax streams that fetches some data on a third server and returns a title:
 
 ```js
 vomit('h1', ajax);
 ```
-This example is silly! Let's do something worth your time...what about an Ajax stream that fetches a list of junk food:
+This example is silly! Let's do something worth your time...what about an ajax stream that fetches a list of junk food:
 
 ```js
 var stream = ajax()
@@ -100,3 +101,4 @@ vomit('article', [
   vomit('ul', stream),
 ]);
 ```
+You've seen [earlier](#dom-morphing) that vomit can accept functions as argument to perform DOM morphing. It's actually better than that, it returns a [transform](https://nodejs.org/api/stream.html#stream_class_stream_transform) stream that you can pipe and reuse.
