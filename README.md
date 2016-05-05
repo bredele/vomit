@@ -3,6 +3,8 @@
 
 Makes me sick how cool is virtual dom :s
 
+![vomit](http://static.tumblr.com/67e9d19760f9ab511ea7142b267a0840/etrtigr/zohmqv4pn/tumblr_static_unicornpuke.jpg)
+
 ## Usage
 
 Scroll down to see how to use vomit with functions, streams and others.
