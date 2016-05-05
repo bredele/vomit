@@ -3,8 +3,6 @@
 
 Makes me sick how cool is virtual dom :s
 
-Lightweight and fast DOM diffing/patching to compose with functions and/or streams.
-
 ## Usage
 
 ```js
@@ -15,6 +13,8 @@ vomit('ul', arr.map(function(name) {
   return vomit('li', name);
 }))
 ```
+
+Scroll down to see how to use vomit with functions, streams and others.
 
 ### create element
 
