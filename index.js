@@ -12,9 +12,9 @@ module.exports = function(arr, ...args) {
   var str = arr[i]
   var length = arr.length;
   var match
-  var node
   var chars
   var parent = document.createDocumentFragment()
+  var node = parent;
   while(str) {
     chars = true
     if(str.indexOf('</') == 0) {
@@ -22,16 +22,14 @@ module.exports = function(arr, ...args) {
       if(match) {
         str = str.substring(match[0].length)
         var tmp = node.parentElement
-        if(tmp) parent = tmp
+        if(tmp) node = tmp
         chars = false;
       }
     } else if(str.indexOf('<') == 0 ) {
       match = str.match(start)
       if(match) {
         str = str.substring(match[0].length)
-        node = document.createElement(match[1])
-        parent.appendChild(node)
-        parent = node
+        node = node.appendChild(document.createElement(match[1]))
         chars = false
       }
     }
@@ -39,12 +37,13 @@ module.exports = function(arr, ...args) {
       var index = str.indexOf('<')
       var text = index < 0 ? str : str.substring(0, index)
       str = index < 0 ? '' : str.substring(index)
-      parent.appendChild(document.createTextNode(text))
+      node.appendChild(document.createTextNode(text))
     }
 
     if(!str && ++i != length) {
       str = args[i - 1] + arr[i]
     }
   }
-  return parent
+  // we proubably could do better
+  return parent.firstChild
 }
