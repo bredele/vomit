@@ -10,3 +10,10 @@ tape('should create element', (test) => {
   var btn = vomit`<button>hello</button>`
   test.equal(btn.outerHTML, '<button>hello</button>')
 })
+
+tape('should interpolate string', (test) => {
+  test.plan(1)
+  var label = 'hello'
+  var btn = vomit`<button>${label}</button>`
+  test.equal(btn.outerHTML, '<button>hello</button>')
+})
