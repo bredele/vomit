@@ -45,5 +45,5 @@ module.exports = function(arr, ...args) {
     }
   }
   // we proubably could do better
-  return parent.firstChild
+  return parent.children[0]
 }
