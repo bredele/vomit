@@ -1,7 +1,9 @@
 # vomit
  > **v**~~irtual d~~**om it** ~~sucks~~
 
-Makes me sick how cool is virtual dom :s
+Makes me sick how cool is ~~virtual~~ dom :s
+
+[![vomit](http://static.tumblr.com/67e9d19760f9ab511ea7142b267a0840/etrtigr/zohmqv4pn/tumblr_static_unicornpuke.jpg)](http://requirebin.com/?gist=df0d460eb9506d5e8a17b3f33141b30b)
 
 ## Usage
 
@@ -16,8 +18,12 @@ vomit('ul', arr.map(function(name) {
 }))
 ```
 
+<<<<<<< HEAD
 Vomit is in currently in development, if you want to contribute or have any questions feel free
 to open issues.
+=======
+Vomit is currently in development, if you want to contribute or have any questions feel free to open issues.
+>>>>>>> master
 
 ### create element
 
@@ -79,7 +85,7 @@ var radio = vomit('input', {
   type: function() {
     return true ? 'radio' : 'checkbox';
   }
-}, 'hello');
+});
 ```
 
 ## Composition
