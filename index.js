@@ -30,7 +30,6 @@ module.exports = function(arr, ...args) {
       if(match) {
         str = str.substring(match[0].length)
         node = node.appendChild(document.createElement(match[1]))
-        var attrs = match[2]
         match[2].replace(attr, function(_, key, value) {
           node.setAttribute(key, value)
         })
