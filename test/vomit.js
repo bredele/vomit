@@ -32,9 +32,11 @@ tape('should create element with attributes', (test) => {
   test.equal(btn.outerHTML, '<button id="btn" class="test">hello</button>')
 })
 
-// tape('should interpolate attributes', (test) => {
-//   test.plan(1)
-//   var name = 'olivier'
-//   var btn = vomit`<button id="${name}" class="${name}">hello</button>`
-//   test.equal(btn.outerHTML, '<button id="${name}" class="${name}">hello</button>')
-// })
+tape('should interpolate attributes', (test) => {
+  test.plan(1)
+  var name = 'olivier'
+  var date = new Date()
+  var btn = vomit`<button id="${name}" class="${name}">hello</button>`
+  console.log(new Date() - date)
+  test.equal(btn.outerHTML, '<button id="olivier" class="olivier">hello</button>')
+})

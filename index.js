@@ -1,6 +1,5 @@
-var start = /^<([-A-Za-z0-9_]+)((?:\s+\w+(?:\s*=\s*(?:(?:"[^"]*")|(?:'[^']*')|[^>\s]+))?)*)\s*(\/?)>/
-var end = endTag = /^<\/([-A-Za-z0-9_]+)[^>]*>/
-var attr = /([-A-Za-z0-9_]+)(?:\s*=\s*(?:(?:"((?:\\.|[^"])*)")|(?:'((?:\\.|[^'])*)')|([^>\s]+)))?/g;
+
+var walk = require('domwalk')
 
 /**
  *
@@ -8,45 +7,36 @@ var attr = /([-A-Za-z0-9_]+)(?:\s*=\s*(?:(?:"((?:\\.|[^"])*)")|(?:'((?:\\.|[^'])
  */
 
 module.exports = function(arr, ...args) {
-  var i = 0
-  var str = arr[i]
-  var length = arr.length;
-  var match
-  var chars
-  var parent = document.createDocumentFragment()
-  var node = parent;
-  while(str) {
-    chars = true
-    if(str.indexOf('</') == 0) {
-      match = str.match(end)
-      if(match) {
-        str = str.substring(match[0].length)
-        var tmp = node.parentElement
-        if(tmp) node = tmp
-        chars = false;
-      }
-    } else if(str.indexOf('<') == 0 ) {
-      match = str.match(start)
-      if(match) {
-        str = str.substring(match[0].length)
-        node = node.appendChild(document.createElement(match[1]))
-        match[2].replace(attr, function(_, key, value) {
-          node.setAttribute(key, value)
-        })
-        chars = false
-      }
-    }
-    if(chars) {
-      var index = str.indexOf('<')
-      var text = index < 0 ? str : str.substring(0, index)
-      str = index < 0 ? '' : str.substring(index)
-      node.appendChild(document.createTextNode(text))
-    }
+  // may be should be outside
+  var parent = document.createElement('div')
+  var str = arr.join('${0}')
+  // innerHTML faster?
+  parent.innerHTML = str
+  var el = parent.children[0]
+  bind(el, args) // children, childNodes?
+  return el
+}
 
-    if(!str && ++i != length) {
-      str = args[i - 1] + arr[i]
+
+
+function bind(el, args) {
+  var h = 0
+  walk(el, function(node) {
+    if(node.nodeType == 1) {
+      var attrs = node.attributes
+      // forEach faster?
+      for(var i = 0, l = attrs.length; i < l; i++) {
+        parse(attrs[i], args[h++])
+      }
+    } else {
+      parse(node, args[h++])
     }
-  }
-  // we proubably could do better
-  return parent.children[0]
+  });
+}
+
+function parse(node, value) {
+  node.nodeValue = node.nodeValue.replace(/\$\{0\}/g, function() {
+    return value
+  });
+  console.log(node.nodeValue)
 }
