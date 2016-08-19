@@ -18,25 +18,26 @@ module.exports = function(arr, ...args) {
 }
 
 
-
+/* this should be in brick core */
 function bind(el, args) {
-  var h = 0
   walk(el, function(node) {
     if(node.nodeType == 1) {
       var attrs = node.attributes
       // forEach faster?
       for(var i = 0, l = attrs.length; i < l; i++) {
-        parse(attrs[i], args[h++])
+        parse(attrs[i], args)
       }
     } else {
-      parse(node, args[h++])
+      parse(node, args)
     }
   });
 }
 
-function parse(node, value) {
-  node.nodeValue = node.nodeValue.replace(/\$\{0\}/g, function() {
+function parse(node, values) {
+  var str = node.nodeValue;
+  node.nodeValue = '';
+  node.nodeValue = str.replace(/\$\{0\}/g, function() {
+    var value = values.shift();
     return value
   });
-  console.log(node.nodeValue)
 }
