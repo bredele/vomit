@@ -5,6 +5,7 @@
 var tape = require('tape')
 var vomit = require('..')
 var promise = require('promises-a');
+var Readable = require('stream').Readable;
 
 
 tape('should interpolate string', (test) => {
@@ -39,6 +40,13 @@ tape('should interpolate promise returning any type of value', (test) => {
 })
 
 
+tape('should interpolate stream', (test) => {
+	test.plan(1)
+	var file = stream(() => test.equal(btn.outerHTML, '<button>hello world</button>'))
+	vomit`<button>${file}</button>`
+})
+
+
 /**
  * Return value after 500ms using promises.
  * 
@@ -53,4 +61,17 @@ function async(value) {
 	def.fulfill(value)
   }, 500)
   return def.promise
+}
+
+
+function stream(cb) {
+	var rs = new Readable
+	rs.on('close', cb)
+	rs._read = function() {}
+	rs.push('hello ')
+	setTimeout(function() {
+		rs.push('world')
+		rs.push(null)
+	}, 1000)
+  return rs
 }
