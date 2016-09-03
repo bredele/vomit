@@ -18,7 +18,12 @@ vomit('ul', arr.map(function(name) {
 }))
 ```
 
+<<<<<<< HEAD
+Vomit is in currently in development, if you want to contribute or have any questions feel free
+to open issues.
+=======
 Vomit is currently in development, if you want to contribute or have any questions feel free to open issues.
+>>>>>>> master
 
 ### create element
 

@@ -1,78 +1,149 @@
-/**
- * Module dependencies.
- */
-
-var morph = require('morphdom');
-var transform = require('./lib/transform');
-var attrs = require('attrs');
-var toString = Object.prototype.toString;
-
 
 /**
- * Expose 'vomit'.
- *
- * @param {String} tag
- * @param {Element|Function|String|Array|Object} content
- * @api public
+ * Vomit dependencies.
  */
 
-module.exports = function(tag, obj, content) {
-  var el;
-  if(typeof tag !== 'string') {
-    return transform(function(data) {
-      var dom = tag(data);
-      if(el) morph(el, dom);
-      else el = dom;
-      return el;
-    });
-  }
-  el = document.createElement(tag);
-  append(el, obj, content);
-  return el;
-};
+var walk = require('domwalk')
+var styles = require('stylon')
 
 
 /**
- * Append inner element(s).
- *
- * @param {Element} el
- * @param {Element|Function|String|Array|Object} content
- * @api private
+ * Expose 'vomit'
  */
 
-function append(el, obj, content) {
-  if(toString.call(obj) != '[object Object]' || obj.on) {
-    content = obj;
-    obj = null;
-  }
-  attrs(el, obj);
-  if(content) {
-    var bool = content.on;
-    if(typeof content === 'function' && !bool) content = content(el);
-    if(typeof content === 'string') content = document.createTextNode(content);
-    if(content instanceof Array) content = fragment(content);
-    if(bool) return content.on('data', function(data) {
-      append(el, data);
-    });
-    el.appendChild(content);
+module.exports = function(arr, ...args) {
+  if(typeof arr === 'function') {
+    return function(data) {
+      return arr(data)
+    }
+  } else {
+    // may be should be outside (or use brick)
+    var parent = document.createElement('div')
+    // innerHTML faster?
+    parent.innerHTML = arr.join('${0}')
+    var el = parent.children[0]
+    bind(el, args) // children, childNodes?
+    return el
   }
 }
 
 
 /**
- * Append fragment of elements.
+ * Bind element children and attributes
+ * with template variables.
+ * 
+ * @note should be in brick core
+ * 
+ * @param  {Element} el   
+ * @param  {Array} values 
+ * @api private  
+ */
+
+function bind(el, values) {
+  walk(el, function(node) {
+    if(node.nodeType == 1) {
+      var attrs = node.attributes
+      // forEach faster?
+      for(var i = 0, l = attrs.length; i < l; i++) {
+        attribute(attrs[i], values)
+      }
+    } else text(node, values)
+  });
+}
+
+
+/**
+ * Interpolate attribute with values.
  *
- * It is more performant to compute elements
- * into a fragment to voir reflow and repaints.
+ * @param {Node} node 
+ * @param  {Array]} values 
+ * @api private   
+ */
+
+function attribute(node, values) {
+  // nodeValue faster than setAttribute?
+  // faster than split?
+  node.nodeValue = node.nodeValue.replace(/\$\{0\}/g, function() {
+    var value = values.shift();
+    var type = typeof value
+    if(type === 'function') value = value()
+    if(type === 'object') {
+      if(value instanceof Array) value = value.join(' ')
+      else value = styles(value)
+    }
+    return value
+  })
+}
+
+
+/**
+ * Interpolate text nodes with values.
+ * 
+ * @param  {Node} node   
+ * @param  {Array]} values 
+ * @api private       
+ */
+
+function text(node, values) {
+  // parent could be passe from walk
+  var parent = node.parentElement
+  var str = node.nodeValue
+  node.nodeValue = ''
+  var arr = str.split('${0}')
+  // arr[0] is always a string we could optimize!
+  if(arr[0]) append(parent, arr[0]) 
+  for(var i = 1, l = arr.length; i < l ; i++) {
+    append(parent, values.shift())
+    var val = arr[i]
+    if(val) append(parent, val)
+  } 
+}
+
+
+/**
+ * Append child.
  *
- * @param {Array} arr
+ * @note transform is n + 1 depth, it should
+ * be recursive to allow bigger depth
+ * 
+ * @param  {Element} parent 
+ * @param  {String|Element|Stream|Promises} value  
+ * @api private   
+ */
+
+function append(parent, value) {
+  var child;
+  if(typeof value === 'function') value = value()
+  // we could do better
+  if(typeof value === 'object' && !(value instanceof Element)) {
+    child = parent.appendChild(document.createTextNode(''))
+    if(typeof value.then === 'function') {
+      value.then(val => {
+        parent.replaceChild(transform(val), child)
+      })
+    } else if(typeof value.on === 'function') {
+      value.on('data', (data) => {
+        parent.insertBefore(transform(data), child)
+      })
+    }
+    return;
+  }
+  child = transform(value)
+  parent.appendChild(child)
+}
+
+
+/**
+ * Transform value
+ * 
+ * @param  {Any} value 
+ * @return {Element}       
  * @api private
  */
 
-function fragment(arr) {
-  var frag = document.createDocumentFragment();
-  for(var i = 0, l = arr.length; i < l; i++) {
-    append(frag, arr[i]);
-  }
-  return frag;
+function transform(value) {
+  var child;
+  if(value instanceof Element) child = value
+  else child = document.createTextNode(value)
+  return child
 }
