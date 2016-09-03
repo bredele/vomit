@@ -96,6 +96,9 @@ function text(node, values) {
 
 /**
  * Append child.
+ *
+ * @note transform is n + 1 depth, it should
+ * be recursive to allow bigger depth
  * 
  * @param  {Element} parent 
  * @param  {String|Element|Stream|Promises} value  
@@ -107,10 +110,24 @@ function append(parent, value) {
   if(typeof value === 'object' && typeof value.then === 'function') {
     child = document.createTextNode('');
     value.then(function(val) {
-      parent.replaceChild(document.createTextNode(val), child)
+      parent.replaceChild(transform(val), child)
     })
-  }
-  else if(value instanceof Element) child = value
-  else child = document.createTextNode(value)
+  } else child = transform(value)
   parent.appendChild(child)
+}
+
+
+/**
+ * Transform value
+ * 
+ * @param  {Any} value 
+ * @return {Element}       
+ * @api private
+ */
+
+function transform(value) {
+  var child;
+  if(value instanceof Element) child = value
+  else child = document.createTextNode(value)
+  return child
 }

@@ -23,13 +23,20 @@ tape('should interpolate element', (test) => {
 })
 
 
-tape('should interpolate promise', (test) => {
+tape('should interpolate promise returning string', (test) => {
 	test.plan(1)
 	var value = async('hello world')
 	var btn = vomit`<button>${value} and others</button>`
 	value.then(() => test.equal(btn.outerHTML, '<button>hello world and others</button>'))
 })
 
+
+tape('should interpolate promise returning any type of value', (test) => {
+	test.plan(1)
+	var value = async(vomit`<button>hello world</button>`)
+	var section = vomit`<section>${value} and others</section>`
+	value.then(() => test.equal(section.outerHTML, '<section><button>hello world</button> and others</section>'))
+})
 
 
 /**

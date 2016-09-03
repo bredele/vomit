@@ -65,3 +65,4 @@ tape('should interpolate function', (test) => {
   var btn = vomit`<button class="${fn}">hello</button>`
   test.equal(btn.outerHTML, '<button class="show">hello</button>')
 })
+
