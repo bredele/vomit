@@ -21,12 +21,21 @@ tape('should interpolate strings', (test) => {
 })
 
 
+tape('should interpolate numbers', (test) => {
+  test.plan(1)
+  var nb = 2
+  var btn = vomit`<button data-nb="${nb}">hello</button>`
+  test.equal(btn.outerHTML, '<button data-nb="2">hello</button>')
+})
+
+
 tape('should interpolate booleans', (test) => {
   test.plan(1)
   var bool = true
   var btn = vomit`<button hidden="${bool}">hello</button>`
   test.equal(btn.outerHTML, '<button hidden="true">hello</button>')
 })
+
 
 tape('should interpolate arrays', (test) => {
   test.plan(1)

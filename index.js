@@ -57,7 +57,8 @@ function attribute(node, values) {
   // nodeValue faster than setAttribute?
   // faster than split?
   node.nodeValue = node.nodeValue.replace(/\$\{0\}/g, function() {
-    return values.shift()
+    var value = values.shift();
+    return value instanceof Array ? value.join(' ') : value
   })
 }
 
