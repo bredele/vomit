@@ -4,6 +4,7 @@
  */
 
 var walk = require('domwalk')
+var styles = require('stylon')
 
 
 /**
@@ -58,7 +59,11 @@ function attribute(node, values) {
   // faster than split?
   node.nodeValue = node.nodeValue.replace(/\$\{0\}/g, function() {
     var value = values.shift();
-    return value instanceof Array ? value.join(' ') : value
+    if(typeof value === 'object') {
+      if(value instanceof Array) value = value.join(' ')
+      else value = styles(value)
+    }
+    return value
   })
 }
 
