@@ -5,6 +5,7 @@
 
 var walk = require('domwalk')
 var styles = require('stylon')
+var morph = require('morphdom')
 
 
 /**
@@ -13,8 +14,11 @@ var styles = require('stylon')
 
 module.exports = function(arr, ...args) {
   if(typeof arr === 'function') {
+    var el;
     return function(data) {
-      return arr(data)
+      var result = arr(data)
+      el = el ? morph(el, result) : result
+      return el
     }
   } else {
     // may be should be outside (or use brick)

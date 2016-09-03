@@ -28,3 +28,14 @@ tape('should wrap function', (test) => {
   })
   test.equal(btn('hello').outerHTML, '<button>hello</button>')
 })
+
+
+tape('should diff and patch element', (test) => {
+  test.plan(1)
+  var btn = vomit(function(data) {
+    return vomit`<button>${data}</button>`
+  })
+  var el = btn('hello')
+  btn('world')
+  test.equal(el.outerHTML, '<button>world</button>')
+})
