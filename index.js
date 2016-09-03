@@ -104,7 +104,13 @@ function text(node, values) {
 
 function append(parent, value) {
   var child;
-  if(value instanceof Element) child = value
+  if(typeof value === 'object' && typeof value.then === 'function') {
+    child = document.createTextNode('');
+    value.then(function(val) {
+      parent.replaceChild(document.createTextNode(val), child)
+    })
+  }
+  else if(value instanceof Element) child = value
   else child = document.createTextNode(value)
   parent.appendChild(child)
 }

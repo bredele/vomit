@@ -24,6 +24,7 @@ tape('should interpolate element', (test) => {
 
 
 tape('should interpolate promise', (test) => {
+	test.plan(1)
 	var value = async('hello world')
 	var btn = vomit`<button>${value}</button>`
 	value.then(() => test.equal(btn.outerHTML, '<button>hello world</button>'))
@@ -42,7 +43,7 @@ tape('should interpolate promise', (test) => {
 function async(value) {
   var def = promise()
   setTimeout(function() {
-	def.resolve(value)
+	def.fulfill(value)
   }, 5000)
   return def.promise
 }
