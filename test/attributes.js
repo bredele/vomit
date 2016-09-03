@@ -27,3 +27,10 @@ tape('should interpolate booleans', (test) => {
   var btn = vomit`<button hidden="${bool}">hello</button>`
   test.equal(btn.outerHTML, '<button hidden="true">hello</button>')
 })
+
+tape('should interpolate arrays', (test) => {
+  test.plan(1)
+  var classes = ['hello', 'world']
+  var btn = vomit`<button class="${classes}">hello</button>`
+  test.equal(btn.outerHTML, '<button class="hello world">hello</button>')
+})
