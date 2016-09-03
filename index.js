@@ -13,9 +13,8 @@ var walk = require('domwalk')
 module.exports = function(arr, ...args) {
   // may be should be outside
   var parent = document.createElement('div')
-  var str = arr.join('${0}')
   // innerHTML faster?
-  parent.innerHTML = str
+  parent.innerHTML = arr.join('${0}')
   var el = parent.children[0]
   bind(el, args) // children, childNodes?
   return el
@@ -59,7 +58,7 @@ function attribute(node, values) {
   // faster than split?
   node.nodeValue = node.nodeValue.replace(/\$\{0\}/g, function() {
     return values.shift()
-  });
+  })
 }
 
 
