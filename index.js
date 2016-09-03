@@ -7,8 +7,7 @@ var walk = require('domwalk')
 
 
 /**
- *
- *
+ * Expose 'vomit'
  */
 
 module.exports = function(arr, ...args) {
@@ -23,35 +22,78 @@ module.exports = function(arr, ...args) {
 }
 
 
-/* this should be in brick core */
-function bind(el, args) {
+/**
+ * Bind element children and attributes
+ * with template variables.
+ * 
+ * @note should be in brick core
+ * 
+ * @param  {Element} el   
+ * @param  {Array} values 
+ * @api private  
+ */
+
+function bind(el, values) {
   walk(el, function(node) {
     if(node.nodeType == 1) {
       var attrs = node.attributes
       // forEach faster?
       for(var i = 0, l = attrs.length; i < l; i++) {
-        interpolate(attrs[i], args)
+        attribute(attrs[i], values)
       }
-    } else {
-      interpolate(node, args)
-    }
+    } else text(node, values)
   });
 }
 
 
 /**
- * Interpolaten text nodes with values.
+ * Interpolate attribute with values.
+ *
+ * @param {Node} node 
+ * @param  {Array]} values 
+ * @api private   
+ */
+
+function attribute(node, values) {
+
+}
+
+
+/**
+ * Interpolate text nodes with values.
  * 
  * @param  {Node} node   
  * @param  {Array]} values 
  * @api private       
  */
 
-function interpolate(node, values) {
-  var str = node.nodeValue;
-  node.nodeValue = '';
-  node.nodeValue = str.replace(/\$\{0\}/g, function() {
-    var value = values.shift();
-    return value
-  });
+function text(node, values) {
+  // parent could be passe from walk
+  var parent = node.parentElement
+  var str = node.nodeValue
+  node.nodeValue = ''
+  var arr = str.split('${0}')
+  // arr[0] is always a string we could optimize!
+  if(arr[0]) append(parent, arr[0]) 
+  for(var i = 1, l = arr.length; i < l ; i++) {
+    append(parent, values.shift())
+    var val = arr[i]
+    if(val) append(parent, val)
+  } 
+}
+
+
+/**
+ * Append child.
+ * 
+ * @param  {Element} parent 
+ * @param  {String|Element|Stream|Promises} value  
+ * @api private   
+ */
+
+function append(parent, value) {
+  var child;
+  if(value instanceof Element) child = value
+  else child = document.createTextNode(value)
+  parent.appendChild(child)
 }
