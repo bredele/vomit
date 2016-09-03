@@ -59,8 +59,9 @@ function attribute(node, values) {
   // faster than split?
   node.nodeValue = node.nodeValue.replace(/\$\{0\}/g, function() {
     var value = values.shift();
-    if(typeof value === 'function') value = value()
-    if(typeof value === 'object') {
+    var type = typeof value
+    if(type === 'function') value = value()
+    if(type === 'object') {
       if(value instanceof Array) value = value.join(' ')
       else value = styles(value)
     }
