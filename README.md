@@ -7,7 +7,7 @@ Makes me sick how cool is ~~virtual~~ dom :s
 
 ## Usage
 
-Scroll down to see how to use vomit with functions, streams and others.
+Scroll down to see how to use vomit with functions, promises, streams or virtual dom to create composable components.
 
 ```js
 var vomit = require('vomit');
@@ -18,15 +18,19 @@ vomit`<ul>${arr.map(item => `<li>${item}</li>`)}</ul>`
 
 Vomit is in currently in development, if you want to contribute or have any questions feel free to open issues.
 
-### create element
+### A powerful syntax
 
-Vomit can quickly create a DOM element as following:
+Vomit leverages the power of ES6 [template strings](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings) and allows you to quickly create DOM elements as following:
 
 ```js
 var label = 'hello world'
 var btn = vomit`<button>${label}</button>`
 ```
 
+The placeholders between ```${}``` substitute any type of data. You even can subsitute [DOM elements](), [Promises]() or [Streams](). The list is long but you won't take more than 5 minutes to harnest the power of vomit.
+
+
+## 5 mins learning curve
 
 ### children elements
 
