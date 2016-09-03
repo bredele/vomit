@@ -42,8 +42,10 @@ tape('should interpolate promise returning any type of value', (test) => {
 
 tape('should interpolate stream', (test) => {
 	test.plan(1)
-	var file = stream(() => test.equal(btn.outerHTML, '<button>hello world</button>'))
-	vomit`<button>${file}</button>`
+	var btn = vomit`<button>${stream()}</button>`
+	setTimeout(function() {
+		test.equal(btn.outerHTML, '<button>hello world</button>')
+	}, 1000)
 })
 
 
@@ -64,14 +66,13 @@ function async(value) {
 }
 
 
-function stream(cb) {
+function stream() {
 	var rs = new Readable
-	rs.on('close', cb)
 	rs._read = function() {}
 	rs.push('hello ')
 	setTimeout(function() {
 		rs.push('world')
 		rs.push(null)
-	}, 1000)
+	}, 500);
   return rs
 }
