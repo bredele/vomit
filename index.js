@@ -106,11 +106,10 @@ function text(node, values) {
  */
 
 function append(parent, value) {
-  var type = typeof value
   var child;
-  if(type === 'function') value = value()
+  if(typeof value === 'function') value = value()
   // we could do better
-  if(type === 'object' && !(value instanceof Element)) {
+  if(typeof value === 'object' && !(value instanceof Element)) {
     child = parent.appendChild(document.createTextNode(''))
     if(typeof value.then === 'function') {
       value.then(val => {

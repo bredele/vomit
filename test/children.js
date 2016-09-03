@@ -49,13 +49,26 @@ tape('should interpolate stream', (test) => {
 })
 
 
-tape('should interpolate function', (test) => {
+tape('should interpolate function returning string', (test) => {
 	test.plan(1)
 	var fn = function() {
 		return 'hello world'
 	}
 	var btn = vomit`<button>${fn}</button>`
 	test.equal(btn.outerHTML, '<button>hello world</button>')
+})
+
+
+
+tape('should interpolate function returning complex values', (test) => {
+	test.plan(1)
+	var fn = function() {
+		return async(vomit`<button>hello world</button>`)
+	}
+	var section = vomit`<section>${fn} and others</section>`
+	setTimeout(function() {
+		test.equal(section.outerHTML, '<section><button>hello world</button> and others</section>')
+	}, 1000)
 })
 
 
