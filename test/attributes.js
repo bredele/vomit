@@ -43,3 +43,14 @@ tape('should interpolate arrays', (test) => {
   var btn = vomit`<button class="${classes}">hello</button>`
   test.equal(btn.outerHTML, '<button class="hello world">hello</button>')
 })
+
+
+tape('shound interpolate objects', (test) => {
+  test.plan(1)
+  var styles = {
+    width: 100 + 'px',
+    height: 200 + 'px'
+  }
+  var btn = vomit`<button style="${styles}">hello</button>`
+  test.equal(btn.outerHTML, '<button style="width:100px;height:200px;">hello</button>')
+})
