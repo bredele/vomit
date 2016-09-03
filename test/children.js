@@ -49,6 +49,16 @@ tape('should interpolate stream', (test) => {
 })
 
 
+tape('should interpolate function', (test) => {
+	test.plan(1)
+	var fn = function() {
+		return 'hello world'
+	}
+	var btn = vomit`<button>${fn}</button>`
+	test.equal(btn.outerHTML, '<button>hello world</button>')
+})
+
+
 /**
  * Return value after 500ms using promises.
  * 
@@ -66,6 +76,14 @@ function async(value) {
 }
 
 
+/**
+ * Return 'hello world' using streams.
+ * 
+ * @param  {Any} value
+ * @return {Promise}
+ * @api private
+ */
+
 function stream() {
 	var rs = new Readable
 	rs._read = function() {}
@@ -73,6 +91,6 @@ function stream() {
 	setTimeout(function() {
 		rs.push('world')
 		rs.push(null)
-	}, 500);
+	}, 500)
   return rs
 }

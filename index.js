@@ -120,7 +120,7 @@ function append(parent, value) {
     value.on('data', (data) => {
       parent.insertBefore(transform(data), child)
     })
-    // should we delete child when finish?
+    // should we delete child when finish - stream event??
     return
   }
   else child = transform(value)
