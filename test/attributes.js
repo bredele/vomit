@@ -13,9 +13,17 @@ tape('should create element with attributes', (test) => {
 })
 
 
-tape('should interpolate attributes', (test) => {
+tape('should interpolate strings', (test) => {
   test.plan(1)
   var name = 'olivier'
   var btn = vomit`<button id="${name}" class="${name}">hello</button>`
   test.equal(btn.outerHTML, '<button id="olivier" class="olivier">hello</button>')
+})
+
+
+tape('should interpolate booleans', (test) => {
+  test.plan(1)
+  var bool = true
+  var btn = vomit`<button hidden="${bool}">hello</button>`
+  test.equal(btn.outerHTML, '<button hidden="true">hello</button>')
 })
