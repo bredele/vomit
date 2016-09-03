@@ -13,33 +13,20 @@ Scroll down to see how to use vomit with functions, streams and others.
 var vomit = require('vomit');
 var arr = ['foo', 'bar', 'beep'];
 
-vomit('ul', arr.map(function(name) {
-  return vomit('li', name);
-}))
+vomit`<ul>${arr.map(item => `<li>${item}</li>`)}</ul>`
 ```
 
-<<<<<<< HEAD
-Vomit is in currently in development, if you want to contribute or have any questions feel free
-to open issues.
-=======
-Vomit is currently in development, if you want to contribute or have any questions feel free to open issues.
->>>>>>> master
+Vomit is in currently in development, if you want to contribute or have any questions feel free to open issues.
 
 ### create element
 
 Vomit can quickly create a DOM element as following:
 
 ```js
-var btn = vomit('button');
+var label = 'hello world'
+var btn = vomit`<button>${label}</button>`
 ```
 
-### inner text
-
-Vomit can add text as a node child:
-
-```js
-var btn = vomit('button', 'hello');
-```
 
 ### children elements
 
