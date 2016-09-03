@@ -1,5 +1,10 @@
 
+/**
+ * Vomit dependencies.
+ */
+
 var walk = require('domwalk')
+
 
 /**
  *
@@ -25,15 +30,24 @@ function bind(el, args) {
       var attrs = node.attributes
       // forEach faster?
       for(var i = 0, l = attrs.length; i < l; i++) {
-        parse(attrs[i], args)
+        interpolate(attrs[i], args)
       }
     } else {
-      parse(node, args)
+      interpolate(node, args)
     }
   });
 }
 
-function parse(node, values) {
+
+/**
+ * Interpolaten text nodes with values.
+ * 
+ * @param  {Node} node   
+ * @param  {Array]} values 
+ * @api private       
+ */
+
+function interpolate(node, values) {
   var str = node.nodeValue;
   node.nodeValue = '';
   node.nodeValue = str.replace(/\$\{0\}/g, function() {
