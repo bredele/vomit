@@ -45,7 +45,7 @@ tape('should interpolate arrays', (test) => {
 })
 
 
-tape('shound interpolate objects', (test) => {
+tape('should interpolate objects', (test) => {
   test.plan(1)
   var styles = {
     width: 100 + 'px',
@@ -53,4 +53,15 @@ tape('shound interpolate objects', (test) => {
   }
   var btn = vomit`<button style="${styles}">hello</button>`
   test.equal(btn.outerHTML, '<button style="width:100px;height:200px;">hello</button>')
+})
+
+
+tape('should interpolate function', (test) => {
+  test.plan(1)
+  var bool = true
+  var fn = function() {
+    return bool ? 'show' : 'hide'
+  }
+  var btn = vomit`<button class="${fn}">hello</button>`
+  test.equal(btn.outerHTML, '<button class="show">hello</button>')
 })
