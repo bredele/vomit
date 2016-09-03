@@ -106,24 +106,24 @@ function text(node, values) {
  */
 
 function append(parent, value) {
+  var type = typeof value
   var child;
-  // we can optimize that!
-  if(typeof value === 'object' && typeof value.then === 'function') {
-    child = document.createTextNode('');
-    value.then(function(val) {
-      parent.replaceChild(transform(val), child)
-    })
-  } else if(typeof value === 'object' && typeof value.on === 'function') {
-    // append right away just to be sure
-    child = parent.appendChild(document.createTextNode(''));
-    // using requestanimationframe and fragment we can optimize that
-    value.on('data', (data) => {
-      parent.insertBefore(transform(data), child)
-    })
-    // should we delete child when finish - stream event??
-    return
+  if(type === 'function') value = value()
+  // we could do better
+  if(type === 'object' && !(value instanceof Element)) {
+    child = parent.appendChild(document.createTextNode(''))
+    if(typeof value.then === 'function') {
+      value.then(val => {
+        parent.replaceChild(transform(val), child)
+      })
+    } else if(typeof value.on === 'function') {
+      value.on('data', (data) => {
+        parent.insertBefore(transform(data), child)
+      })
+    }
+    return;
   }
-  else child = transform(value)
+  child = transform(value)
   parent.appendChild(child)
 }
 
