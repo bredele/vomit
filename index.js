@@ -12,7 +12,7 @@ var styles = require('stylon')
  */
 
 module.exports = function(arr, ...args) {
-  // may be should be outside
+  // may be should be outside (or use brick)
   var parent = document.createElement('div')
   // innerHTML faster?
   parent.innerHTML = arr.join('${0}')
