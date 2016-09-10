@@ -70,7 +70,7 @@ function attribute(node, values) {
   node.value = ''
   var arr = str.split('${0}')
   if(arr[0]) spitup(node, arr[0]) 
-  for(var i = 1, l = arr.length; i < l ; i++) {
+  for(var i = 1, l = arr.length; i < l; i++) {
     spitup(node, values.shift())
     var val = arr[i]
     if(val) spitup(node, val)
@@ -100,4 +100,3 @@ function text(node, values) {
     if(val) append(parent, val)
   } 
 }
-
