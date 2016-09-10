@@ -4,9 +4,9 @@
  */
 
 var walk = require('domwalk')
-var styles = require('stylon')
 var morph = require('morphdom')
 var append = require('regurgitate')
+var spitup = require('spitup')
 
 
 /**
@@ -66,18 +66,15 @@ function bind(el, values) {
  */
 
 function attribute(node, values) {
-  // nodeValue faster than setAttribute?
-  // faster than split?
-  node.nodeValue = node.nodeValue.replace(/\$\{0\}/g, function() {
-    var value = values.shift();
-    var type = typeof value
-    if(type === 'function') value = value()
-    if(type === 'object') {
-      if(value instanceof Array) value = value.join(' ')
-      else value = styles(value)
-    }
-    return value
-  })
+  var str = node.value
+  node.value = ''
+  var arr = str.split('${0}')
+  if(arr[0]) spitup(node, arr[0]) 
+  for(var i = 1, l = arr.length; i < l ; i++) {
+    spitup(node, values.shift())
+    var val = arr[i]
+    if(val) spitup(node, val)
+  } 
 }
 
 

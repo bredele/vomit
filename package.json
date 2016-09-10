@@ -37,6 +37,7 @@
     "emitter-component": "^1.1.1",
     "morphdom": "^1.3.0",
     "regurgitate": "bredele/regurgitate",
+    "spitup": "bredele/spitup",
     "stream": "0.0.2",
     "stylon": "0.0.1"
   }
