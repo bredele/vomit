@@ -6,6 +6,7 @@
 var walk = require('domwalk')
 var styles = require('stylon')
 var morph = require('morphdom')
+var append = require('regurgitate')
 
 
 /**
@@ -103,51 +104,3 @@ function text(node, values) {
   } 
 }
 
-
-/**
- * Append child.
- *
- * @note transform is n + 1 depth, it should
- * be recursive to allow bigger depth
- * 
- * @param  {Element} parent 
- * @param  {String|Element|Stream|Promises} value  
- * @api private   
- */
-
-function append(parent, value) {
-  var child;
-  if(typeof value === 'function') value = value()
-  // we could do better
-  if(typeof value === 'object' && !(value instanceof Element)) {
-    child = parent.appendChild(document.createTextNode(''))
-    if(typeof value.then === 'function') {
-      value.then(val => {
-        parent.replaceChild(transform(val), child)
-      })
-    } else if(typeof value.on === 'function') {
-      value.on('data', (data) => {
-        parent.insertBefore(transform(data), child)
-      })
-    }
-    return;
-  }
-  child = transform(value)
-  parent.appendChild(child)
-}
-
-
-/**
- * Transform value
- * 
- * @param  {Any} value 
- * @return {Element}       
- * @api private
- */
-
-function transform(value) {
-  var child;
-  if(value instanceof Element) child = value
-  else child = document.createTextNode(value)
-  return child
-}
