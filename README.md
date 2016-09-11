@@ -19,7 +19,11 @@ Other features are:
 - Component oriented development using DOM diffing based on real DOM (not virtual DOM)
 - 2kb minified + gzipped, ideal for mobile and to include as dependency
 
-You'll find Vomit ridiculously easy to learn. To check out live examples and docs, visit [our website](http://bredele.github.io/vomit).
+You'll find Vomit disgustingly easy to learn. To check out live examples and docs, visit [our website](http://bredele.github.io/vomit).
+
+## Contribution
+
+For questions and feedback please use the [Slack chat room](). For support, bug reports and or feature requests please use the issue list of this repo.
 
 ## License
 
