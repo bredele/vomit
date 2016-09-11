@@ -17,6 +17,7 @@ Vomit does not force you into any syntax/API but instead uses the power of JavaS
 Other features are:
 - A 5 minutes learning curve (a function call to create an element, an other function call to update it)
 - Component oriented development using DOM diffing based on real DOM (not virtual DOM)
+- Works on server side
 - 2kb minified + gzipped, ideal for mobile and to include as dependency
 
 You'll find Vomit disgustingly easy to learn. To check out live examples and docs, visit [our website](http://bredele.github.io/vomit).
@@ -24,6 +25,8 @@ You'll find Vomit disgustingly easy to learn. To check out live examples and doc
 ## Contribution
 
 For questions and feedback please use the [Slack chat room](). For support, bug reports and or feature requests please use the issue list of this repo.
+
+[![NPM](https://nodei.co/npm/vomit.png)](https://nodei.co/npm/vomit/)
 
 ## License
 

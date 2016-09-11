@@ -6,7 +6,6 @@
 var vomit = require('../..')
 
 
-
 function header() {
   return vomit`<header>
     <h1>todos</h1>
