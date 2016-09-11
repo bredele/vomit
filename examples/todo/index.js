@@ -3,7 +3,7 @@
  * Todo dependencies.
  */
 
-var vomit = require('../..')
+var vomit = require('vomit')
 
 
 function header() {

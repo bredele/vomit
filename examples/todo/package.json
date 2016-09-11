@@ -1,7 +1,11 @@
 {
   "private": true,
+  "scripts": {
+    "build": "browserify index.js > output.js"
+  },
   "dependencies": {
     "todomvc-app-css": "^2.0.0",
-    "todomvc-common": "^1.0.1"
+    "todomvc-common": "^1.0.1",
+    "vomit": "github:bredele/vomit"
   }
 }
