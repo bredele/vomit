@@ -3,6 +3,8 @@
 
 [![vomit](http://static.tumblr.com/67e9d19760f9ab511ea7142b267a0840/etrtigr/zohmqv4pn/tumblr_static_unicornpuke.jpg)](http://requirebin.com/?gist=df0d460eb9506d5e8a17b3f33141b30b)
 
+[![Build Status](https://travis-ci.com/bredele/vomit.svg?token=Y4CxXGeQJuzFDfs59QPR&branch=master)](https://travis-ci.com/bredele/vomit)
+
 ## Intro
 
 Vomit is a simple function call that allows you to quickly build components that update themselves.
