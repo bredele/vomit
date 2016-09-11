@@ -36,12 +36,12 @@ module.exports = function(arr, ...args) {
 /**
  * Bind element children and attributes
  * with template variables.
- * 
+ *
  * @note should be in brick core
- * 
- * @param  {Element} el   
- * @param  {Array} values 
- * @api private  
+ *
+ * @param  {Element} el
+ * @param  {Array} values
+ * @api private
  */
 
 function bind(el, values) {
@@ -60,30 +60,30 @@ function bind(el, values) {
 /**
  * Interpolate attribute with values.
  *
- * @param {Node} node 
- * @param  {Array]} values 
- * @api private   
+ * @param {Node} node
+ * @param  {Array]} values
+ * @api private
  */
 
 function attribute(node, values) {
   var str = node.value
   node.value = ''
   var arr = str.split('${0}')
-  if(arr[0]) spitup(node, arr[0]) 
+  if(arr[0]) spitup(node, arr[0])
   for(var i = 1, l = arr.length; i < l; i++) {
     spitup(node, values.shift())
     var val = arr[i]
     if(val) spitup(node, val)
-  } 
+  }
 }
 
 
 /**
  * Interpolate text nodes with values.
- * 
- * @param  {Node} node   
- * @param  {Array]} values 
- * @api private       
+ *
+ * @param  {Node} node
+ * @param  {Array]} values
+ * @api private
  */
 
 function text(node, values) {
@@ -93,10 +93,10 @@ function text(node, values) {
   node.nodeValue = ''
   var arr = str.split('${0}')
   // arr[0] is always a string we could optimize!
-  if(arr[0]) append(parent, arr[0]) 
+  if(arr[0]) append(parent, arr[0])
   for(var i = 1, l = arr.length; i < l ; i++) {
     append(parent, values.shift())
     var val = arr[i]
     if(val) append(parent, val)
-  } 
+  }
 }

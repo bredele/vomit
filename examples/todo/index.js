@@ -3,7 +3,8 @@
  * Todo dependencies.
  */
 
-var vomit = require('vomit')
+var vomit = require('../..')
+
 
 
 function header() {
@@ -12,3 +13,5 @@ function header() {
     <input class="new-todo" placeholder="What needs to be done?" value="">
   </header>`
 }
+
+document.body.appendChild(header())

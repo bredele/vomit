@@ -1,122 +1,46 @@
 # vomit
  > **v**~~irtual d~~**om it** ~~sucks~~
 
-Makes me sick how cool is ~~virtual~~ dom :s
-
 [![vomit](http://static.tumblr.com/67e9d19760f9ab511ea7142b267a0840/etrtigr/zohmqv4pn/tumblr_static_unicornpuke.jpg)](http://requirebin.com/?gist=df0d460eb9506d5e8a17b3f33141b30b)
 
-## Usage
+## Intro
 
-Scroll down to see how to use vomit with functions, promises, streams or virtual dom to create composable components.
-
-```js
-var vomit = require('vomit');
-var arr = ['foo', 'bar', 'beep'];
-
-vomit`<ul>${arr.map(item => `<li>${item}</li>`)}</ul>`
-```
-
-Vomit is in currently in development, if you want to contribute or have any questions feel free to open issues.
-
-### A powerful syntax
-
-Vomit leverages the power of ES6 [template strings](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings) and allows you to quickly create DOM elements as following:
+Vomit is a simple function call that allows you to quickly build components that update themselves.
 
 ```js
-var label = 'hello world'
-var btn = vomit`<button>${label}</button>`
+var name = 'World'
+var el = vomit`<h1>Hello ${name}!</h1>`
 ```
 
-The placeholders between ```${}``` substitute any type of data. You even can subsitute [DOM elements](), [Promises]() or [Streams](). The list is long but you won't take more than 5 minutes to harnest the power of vomit.
+Vomit does not force you into any syntax/API but instead uses the power of JavaScript [template literals]() built in your browser. String substitution presents many [benefits](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings) and Vomit makes it even better allowing you to substitute Objects, Arrays, **Promises and Streams**.
 
+Other features are:
+- A 5 minutes learning curve (a function call to create an element, an other function call to update it)
+- Component oriented development using DOM diffing based on real DOM (not virtual DOM)
+- 2kb minified + gzipped, ideal for mobile and to include as dependency
 
-## 5 mins learning curve
+You'll find Vomit ridiculously easy to learn. [Give a try]()!
 
-### children elements
+## License
 
-Vomit can add arrays as a node children:
+The MIT License (MIT)
 
-```js
-var btn = vomit('button', [
-  'hello',
-  vomit('span', 'world')
-]);
-```
+Copyright (c) 2016 Olivier Wietrich
 
-### DOM morphing
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-What would be virtual dom without morphing? Morphing is a fancy word to apply a diff patch on a DOM element in order to keep its state. Basically, it updates DOM elements for you this way you don't have to care about it.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-```js
-var list = vomit(function(data) {
-  return vomit('ul', data.map(function(name) {
-    return vomit('li', name);
-  }));
-});
-
-// both lines return the same DOM element with an updated content
-list(['beep']);
-list(['beep', 'boop']);
-```
-
-Vomit can swallow functions and regurgitate them in order to create reusable components. What's nasty about it is that
-it updates your DOM everytime you call that function! At the opposite of some librairies out there such as React, vomit is using real DOM for diffing and patching.
-
-### element attributes
-
-Vomit can set strings, arrays, boolean or functions as attributes.
-
-```js
-var radio = vomit('input', {
-  id: 'radio',
-  class: ['hello', 'world'],
-  style: {
-    top: 200 + 'px'
-  },
-  type: function() {
-    return true ? 'radio' : 'checkbox';
-  }
-});
-```
-
-## Composition
-
-Composition is at the core of vomit. As seen above, you can compose text and DOM node(s). But vomit
-doesn't stop there and allows you to create disgusting concoction of functions and/or streams. Berk!
-
-### function
-
-Functions are JavaScript first class objects. Would be bummer to not add a function as a
-vomit element isn't?
-
-```js
-vomit('span', function() {
-  return puke ? 'hamburger' : 'salad';
-});
-```
-A vomit function can return text, DOM elements, arrays and more (see below).
-
-### stream
-
-If you are trying to build applications with I/O bound (such as XHR, WebSockets, WebRTC, etc) wouldn't it be
-great if you could easily interface with all these things? Vomit favorite's junk food is [streams](https://nodejs.org/api/stream.html). With streams, vomit allows you to incrementally build DOM nodes as soon as data is available. Imagine an Ajax streams that fetches some data on a third server and returns a title:
-
-```js
-vomit('h1', ajax);
-```
-This example is silly! Let's do something worth your time...what about an ajax stream that fetches a list of junk food:
-
-```js
-var stream = ajax()
-  .pipe(vomit(function(data) {
-    return data.map(function(name) {
-      return vomit('li', name);
-    });
-  }));
-
-vomit('article', [
-  'Vomit list:',
-  vomit('ul', stream),
-]);
-```
-You've seen [earlier](#dom-morphing) that vomit can accept functions as argument to perform DOM morphing. It's actually better than that, it returns a [transform](https://nodejs.org/api/stream.html#stream_class_stream_transform) stream that you can pipe and reuse.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
