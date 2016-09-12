@@ -1,16 +1,14 @@
 language: node_js
 node_js:
 - '6'
-
 addons:
   apt:
     packages:
       - xvfb
-
 install:
   - export DISPLAY=':99.0'
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-
+  - npm install
 env:
   global:
   - secure: X8AfyG6yvVT5gJIm8BeYPdJXTyBB/NPx4hVEOF77PxnD+a+9hYGdW3kH0fKmox49AcydLKnFL86bvHjbLw5PhocylpkVyQ8Y0slPeKtTKdP6mImLr8KEwC6JgOMEx9knl0scvPInNE7cstEUsvRQ02wmxqQWJ/+Ck1sd0rhc270c8jQcjeBrnFe2VAgl5BeEiY/SXf/0SBPYdB8i81WZ5cifUrPEwdDRMGvu3tiw3Af3gNuEdkYQxyVJgfDmJV+geLQ0+2l6vmxc9na99ENRXQj9/tyi70gG3Sr27DRYs2k4/w+6fKm3Evm7VNM+K5V2iJGFIQ8xJab/NTmzkoRYBr3j8P0XwiniB41w2zSd9S8RYQjU8AIJ/efe3Bujbv4S3+WFKc0dNtbotf4NzkMYz38Obf3riiayx+t86AzvuNvBvJzjgO06z6s5aklSs4uxHBvXlXVAeCgyqpTC7y4gF1ggQIxei/CTkIcFIi6OnQtpi8nuQcLcXQNRJ5cdnLwFCT1QLVc5I3ZVlz2XMVgxK9KZFkEAyLcdtDXaalauf8Au4C1l3ZfPjSkx1/vCQeUlb82TQ9DKKJvO8Q8kkMu/+q/60qnF4KrXWtpiKya4eD1If+DKzqiY4KZ2bPHus23p/FIPsi/7MEpTjp7rQGFGUqfhi6Qftphhu1Ce4rGPPuk=

@@ -28,9 +28,6 @@
     "tape": "^4.6.0",
     "tape-run": "^2.1.3"
   },
-  "browser": {
-    "emitter": "emitter-component"
-  },
   "dependencies": {
     "domwalk": "^1.1.0",
     "morphdom": "^1.3.0",
