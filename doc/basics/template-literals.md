@@ -14,7 +14,7 @@ var greeting = `Hello ${name}!`
 
   > [Get literal with ES6 Template Strings](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings) for more information
 
-Vomit uses Template Strings and allows you to substitute a lot more than variable and allows string coercion on object, arrays, functions, promises and even streams. Here's a simple example:
+Vomit uses Template Strings and allows you to substitute a lot more than variable and allows string coercion on object, arrays, functions, DOM elements, promises and even streams. Here's a simple example:
 
 ```js
 var states = ['shown', 'active']
