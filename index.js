@@ -15,7 +15,7 @@ var spitup = require('spitup')
 
 module.exports = function(arr, ...args) {
   if(typeof arr === 'function') {
-    var el;
+    var el
     return function(data) {
       var result = arr(data)
       el = el ? morph(el, result) : result
@@ -26,7 +26,7 @@ module.exports = function(arr, ...args) {
     var parent = document.createElement('div')
     // innerHTML faster?
     parent.innerHTML = arr.join('${0}')
-    var el = parent.children[0]
+    el = parent.children[0]
     bind(el, args) // children, childNodes?
     return el
   }
@@ -53,7 +53,7 @@ function bind(el, values) {
         attribute(attrs[i], values)
       }
     } else text(node, values)
-  });
+  })
 }
 
 
