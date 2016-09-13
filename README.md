@@ -14,7 +14,7 @@ var name = 'World'
 var el = vomit`<h1>Hello ${name}!</h1>`
 ```
 
-Vomit does not force you into any syntax/API but instead uses the power of JavaScript [template literals](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings) built in your browser. String substitution presents many [benefits](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings) and Vomit makes it even better allowing you to substitute Objects, Arrays, **Promises and Streams**.
+Vomit does not force you into any syntax/API but instead uses the power of JavaScript [template literals](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings) built in your browser. String substitution presents many [benefits](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings) and Vomit makes it even better allowing you to substitute Objects, Arrays, Functions, **Promises and Streams**.
 
 Other features are:
 - A 5 minutes learning curve (a function call to create an element, an other function call to update it)
