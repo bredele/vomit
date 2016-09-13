@@ -1,5 +1,4 @@
 ui: tape
-concurrency: 5
 browsers:
   - name: chrome
     version: latest
