@@ -19,6 +19,7 @@ Vomit does not force you into any syntax/API but instead uses the power of JavaS
 Other features are:
 - A 5 minutes learning curve (a function call to create an element, an other function call to update it)
 - Component oriented development using DOM diffing based on real DOM (not virtual DOM)
+- Separate and optimize rendering of static and dynamic content
 - Works on [server side](https://github.com/bredele/html-stream)
 - 2kb minified + gzipped, ideal for mobile and to include as dependency
 
