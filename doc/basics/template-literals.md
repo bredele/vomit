@@ -5,7 +5,7 @@ ES6 Template Literals use back-ticks rather than the single or double quotes weâ
 var greeting = `Hello World!`
 ```
 
-Nothing really impressive here but that's not all! Template literals allows to substitute placeholders (using the ${}) with any valid JavaScript expression.
+Nothing really impressive here but that's not all! Template literals allows to substitute placeholders (using the `${}`) with any valid JavaScript expression.
 
 ```js
 var name = 'Bob'
@@ -29,7 +29,7 @@ function transform(data) {
   // parse and process data
   return data
 }
-``
+```
 
   > Have you noticed? Template Strings allows to create multiline strings and vomit makes easy to address all concerns
   in the same language : JavaScript.
