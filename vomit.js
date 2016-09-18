@@ -7,6 +7,7 @@ var walk = require('domwalk')
 var morph = require('morphdom')
 var append = require('regurgitate')
 var spitup = require('spitup')
+var component = require('molder')
 
 
 /**
@@ -15,20 +16,21 @@ var spitup = require('spitup')
 
 module.exports = function(arr, ...args) {
   var el
-  if(typeof arr == 'function') {
-    return function(...data) {
-      var result = arr(...data)
-      el = el ? morph(el, result) : result
-      return el
-    }
-  } else {
-    // may be should be outside (or use brick)
+  if(arr instanceof Array) {
     var parent = document.createElement('div')
     // innerHTML faster?
     parent.innerHTML = arr.join('${0}')
     el = parent.children[0]
     bind(el, args) // children, childNodes?
     return el
+  } else {
+    if(typeof arr == 'function') {
+      return function(...data) {
+        var result = arr(...data)
+        el = el ? morph(el, result) : result
+        return el
+      }
+    } else return component(...arguments)
   }
 }
 
