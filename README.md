@@ -21,7 +21,8 @@ Other features are:
 - Component oriented development using DOM diffing based on real DOM (not virtual DOM)
 - Separate and optimize rendering of static and dynamic content
 - HTML5 Web Component
-- Works with SVG and on [server side](https://github.com/bredele/html-stream)
+- Works server side
+- Works with SVG
 - 2kb minified + gzipped, ideal for mobile and to include as dependency
 
 You'll find Vomit disgustingly easy to learn. To check out live examples and docs, visit [our website](http://bredele.github.io/vomit).
