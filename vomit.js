@@ -21,7 +21,7 @@ module.exports = function(arr, ...args) {
     // innerHTML faster?
     parent.innerHTML = arr.join('${0}')
     el = parent.children[0]
-    bind(el, args) // children, childNodes?
+    bind(el, args)
     return el
   } else {
     if(typeof arr == 'function') {
