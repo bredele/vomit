@@ -14,10 +14,10 @@ var spitup = require('spitup')
  */
 
 module.exports = function(arr, ...args) {
+  var el
   if(typeof arr === 'function') {
-    var el
-    return function(data) {
-      var result = arr(data)
+    return function(...data) {
+      var result = arr(...data)
       el = el ? morph(el, result) : result
       return el
     }

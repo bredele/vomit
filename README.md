@@ -20,7 +20,8 @@ Other features are:
 - A 5 minutes learning curve (a function call to create an element, an other function call to update it)
 - Component oriented development using DOM diffing based on real DOM (not virtual DOM)
 - Separate and optimize rendering of static and dynamic content
-- Works on [server side](https://github.com/bredele/html-stream)
+- HTML5 Web Component
+- Works with SVG and on [server side](https://github.com/bredele/html-stream)
 - 2kb minified + gzipped, ideal for mobile and to include as dependency
 
 You'll find Vomit disgustingly easy to learn. To check out live examples and docs, visit [our website](http://bredele.github.io/vomit).

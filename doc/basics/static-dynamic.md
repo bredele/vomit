@@ -44,7 +44,7 @@ document.body.appendChild(vomit`
   <section>
     <header><header/>
     <article>
-        ${title}
+        ${title('Whaaaat?')}
         <p>Some static text</p>
     </article>
   </section>
