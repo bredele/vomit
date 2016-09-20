@@ -5,10 +5,46 @@
  */
 
 var fs = require('fs')
+var inquirer = require("inquirer")
+var mkdir = require("mkdirp")
 var exists = fs.existsSync;
 
 
-console.log(process.argv.slice(3))
+/**
+ * Component name
+ */
+
+var name = process.argv.slice(3)[0]
+
+if(name) create(name)
+else {
+  inquirer.prompt([
+  {
+    type: "input",
+    name: "name",
+    message: "name: "
+  }, {
+    type: "confirm",
+    name: "material",
+    message: "Use vomit material design?"
+  }]).then(answers => create(answers.name))
+}
+
+
+/**
+ * Create vomit component.
+ *
+ * @api private
+ */
+
+function create(name) {
+  var dir = __dirname + '/' + name
+  mkdir(dir)
+  mkdir(dir + '/test')
+  write(dir + '/package.json', package(name))
+  write(dir + '/index.js', index(name))
+}
+
 
 /**
  * Create package.json template.
@@ -18,13 +54,17 @@ console.log(process.argv.slice(3))
  * @api private
  */
 
-function package(name) {
+function package(name, version) {
   return `{
   "name": "${name}",
   "main": "index.js",
   "scripts": {
-    "test:headless": "browserify test/*.js | tape-run",
-    "test:lint": "standard index.js | snazzy"
+    "test": "browserify test/*.js | tape-run"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "tape": "^4.6.0",
+    "tape-run": "^2.1.3"
   },
   "dependencies": {
     "vomit": "github:bredele/vomit"
