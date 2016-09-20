@@ -6,7 +6,8 @@
 
 var exists = require('fs').existsSync
 var exec = require('win-fork')
-var argv = require('minimist')(process.argv.slice(2))
+var args = process.argv.slice(2);
+var argv = require('minimist')(args)
 
 
 /**

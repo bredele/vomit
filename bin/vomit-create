@@ -1,3 +1,98 @@
 #!/usr/bin/env node
 
-console.log('hello')
+/**
+ * Command dependencies.
+ */
+
+var fs = require('fs')
+var exists = fs.existsSync;
+
+
+console.log(process.argv.slice(3))
+
+/**
+ * Create package.json template.
+
+ * @param {String} name
+ * @return {String}
+ * @api private
+ */
+
+function package(name) {
+  return `{
+  "name": "${name}",
+  "main": "index.js",
+  "dependencies": {
+    "vomit": "github:bredele/vomit"
+  }
+}`
+}
+
+
+/**
+ * Create index.js template.
+
+ * @param {String} name
+ * @return {String}
+ * @api private
+ */
+
+function index(name) {
+  return `/**
+ * Component dependencies.
+ */
+
+ var vomit = require('vomit')
+
+ /**
+  * Expose ${name} component
+  *
+  * @param {Object} data
+  * @api public
+  */
+
+ module.exports = function(data) {
+   return vomit\`
+   <button>Hello</button>
+   <p aria-hidden="true">content</p>
+   \`
+ }`
+}
+
+
+/**
+ * Create style template.
+
+ * @param {String} name
+ * @return {String}
+ * @api private
+ */
+
+function styles(name) {
+  return `button {
+  background: whitesmoke;
+  padding: 10px 16px;
+  border: 2px solid black;
+  box-shadow" 0 0 6px #ccc;
+}`
+}
+
+
+/**
+ * Create file.
+ *
+ * @param {String} path
+ * @param {String} content
+ * @api public
+ */
+
+function write(path, content) {
+  if (exists(path)) {
+    console.log('exists', path)
+  } else {
+    console.log('create', path);
+    var writer = fs.createWriteStream(path)
+    writer.write(content)
+    writer.end()
+  }
+}
