@@ -43,6 +43,7 @@ function create(name) {
   mkdir(dir + '/test')
   write(dir + '/package.json', package(name))
   write(dir + '/index.js', index(name))
+  write(dir + '/vomit.json', mock(name))
 }
 
 
@@ -59,12 +60,15 @@ function package(name, version) {
   "name": "${name}",
   "main": "index.js",
   "scripts": {
-    "test": "browserify test/*.js | tape-run"
+    "start" : "./node_modules/.bin/vomit-live .",
+    "test": "browserify test/*.js | tape-run",
+    "build" : ""
   },
   "devDependencies": {
     "browserify": "^13.0.0",
     "tape": "^4.6.0",
-    "tape-run": "^2.1.3"
+    "tape-run": "^2.1.3",
+    "vomit-live": "github:bredele/vomit-live"
   },
   "dependencies": {
     "vomit": "github:bredele/vomit"
@@ -97,8 +101,8 @@ function index(name) {
 
  module.exports = function(data) {
    return vomit\`
-   <button>Hello</button>
-   <p aria-hidden="true">content</p>
+   <button aria-expanded="\${!data.expanded}">\${data.label}</button>
+   <p aria-hidden="\${data.expanded}">\${data.content}</p>
    \`
  }`
 }
@@ -119,6 +123,22 @@ function styles(name) {
   border: 2px solid black;
   box-shadow" 0 0 6px #ccc;
 }`
+}
+
+/**
+ * Create data to test component.
+ *
+ * @param {String} name
+ * @api private
+ */
+
+function mock(name) {
+  return `{
+  "label" : "${name} component",
+  "expanded" : true,
+  "content" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+}
+  `
 }
 
 

@@ -8,6 +8,11 @@
     "test:headless": "zuul -- test/*.js",
     "test:lint": "standard index.js | snazzy"
   },
+  "bin": {
+    "vomit": "bin/vomit",
+    "vomit-create": "bin/vomit-create",
+    "vomit-github": "bin/vomit-github"
+  },
   "browser": "vomit.js",
   "repository": {
     "type": "git",
