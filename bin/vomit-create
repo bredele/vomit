@@ -41,7 +41,8 @@ function create(name) {
   var dir = __dirname + '/' + name
   mkdir(dir)
   mkdir(dir + '/test')
-  write(dir + '/package.json', package(name))
+  write(dir + '/test/' + name + '.js', test(name))
+  write(dir + '/package.json', pkg(name))
   write(dir + '/index.js', index(name))
   write(dir + '/vomit.json', mock(name))
 }
@@ -55,7 +56,7 @@ function create(name) {
  * @api private
  */
 
-function package(name, version) {
+function pkg(name, version) {
   return `{
   "name": "${name}",
   "main": "index.js",
@@ -100,13 +101,28 @@ function index(name) {
   */
 
  module.exports = function(data) {
-   return vomit\`
-   <button aria-expanded="\${!data.expanded}">\${data.label}</button>
-   <p aria-hidden="\${data.expanded}">\${data.content}</p>
-   \`
+   return vomit\`<div class="component">
+     <button aria-expanded="\${!data.expanded}">\${data.label}</button>
+     <p aria-hidden="\${data.expanded}">\${data.content}</p>
+   </div>\`
  }`
 }
 
+
+function test(name) {
+  return `/**
+ * Test dependencies.
+ */
+
+var test = require('tape')
+var component = require('..')
+
+test('component ${name} is a function', assert => {
+  assert.plan(1)
+  assert.equal(typeof component, 'function')
+})
+  `
+}
 
 /**
  * Create style template.
