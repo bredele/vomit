@@ -10,8 +10,15 @@
 Vomit is a simple function call that allows you to quickly build components that update themselves.
 
 ```js
-var name = 'World'
-var el = vomit`<h1>Hello ${name}!</h1>`
+var name = 'Nyan'
+var rainbow = ['red', 'orange', 'yellow', 'green', 'blue', 'purple']
+
+var el = vomit`<section>
+  <h1>${name} the cat!</h1>
+  <ul>
+    ${rainbow.map(color => vomit`<li>${color}</li>`)}
+  </ul>
+</section>`
 ```
 
 Vomit does not force you into any syntax/API but instead uses the power of JavaScript [template literals](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings) built in your browser. String substitution presents many [benefits](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings) and Vomit makes it even better allowing you to substitute Objects, Arrays, Functions, **Promises and Streams**.

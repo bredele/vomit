@@ -40,6 +40,7 @@ tape('should diff and patch element', (test) => {
   test.equal(el.outerHTML, '<button>world</button>')
 })
 
+
 tape('should work with multilines', (test) => {
   test.plan(1)
   var el = vomit`
