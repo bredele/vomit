@@ -94,8 +94,7 @@ function text(node, values) {
   var str = node.nodeValue
   node.nodeValue = ''
   var arr = str.split('${0}')
-  // arr[0] is always a string we could optimize!
-  if(arr[0]) append(parent, arr[0])
+  if(arr[0]) parent.replaceChild(document.createTextNode(arr[0]), node)
   for(var i = 1, l = arr.length; i < l ; i++) {
     append(parent, values.shift())
     var val = arr[i]

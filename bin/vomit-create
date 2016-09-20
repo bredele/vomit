@@ -22,6 +22,10 @@ function package(name) {
   return `{
   "name": "${name}",
   "main": "index.js",
+  "scripts": {
+    "test:headless": "browserify test/*.js | tape-run",
+    "test:lint": "standard index.js | snazzy"
+  },
   "dependencies": {
     "vomit": "github:bredele/vomit"
   }
