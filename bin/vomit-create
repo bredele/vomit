@@ -5,8 +5,11 @@
  */
 
 var fs = require('fs')
+var join = require('path').join
 var inquirer = require("inquirer")
 var mkdir = require("mkdirp")
+var dependencies = require('../package.json').devDependencies
+var ncp = require('ncp').ncp;
 var exists = fs.existsSync;
 
 
@@ -40,11 +43,18 @@ else {
 function create(name) {
   var dir = __dirname + '/' + name
   mkdir(dir)
+  mkdir(dir + '/node_modules')
+  mkdir(dir + '/node_modules/.bin')
   mkdir(dir + '/test')
   write(dir + '/test/' + name + '.js', test(name))
   write(dir + '/package.json', pkg(name))
   write(dir + '/index.js', index(name))
   write(dir + '/vomit.json', mock(name))
+  install('browserify', dir)
+  install('tape', dir)
+  install('tape-run', dir)
+  install('vomit', dir)
+  install('vomit-live', dir)
 }
 
 
@@ -66,9 +76,9 @@ function pkg(name, version) {
     "build" : ""
   },
   "devDependencies": {
-    "browserify": "^13.0.0",
-    "tape": "^4.6.0",
-    "tape-run": "^2.1.3",
+    "browserify": "${dependencies.browserify}",
+    "tape": "${dependencies.tape}",
+    "tape-run": "${dependencies['tape-run']}",
     "vomit-live": "github:bredele/vomit-live"
   },
   "dependencies": {
@@ -176,3 +186,36 @@ function write(path, content) {
     writer.end()
   }
 }
+
+
+/**
+ * Install dependencies.
+ *
+ * @param {String} name
+ * @param {String} destination
+ * @api public
+ */
+
+function install(name, destination) {
+  var dir = join(__dirname, '../node_modules')
+  ncp(dir + '/' + name, destination + '/node_modules/' + name, err => {
+   if (err) {
+     return console.error(err);
+   }
+
+   fs.symlink(
+     join(dir, '.bin', name),
+     join(destination, './node_modules/.bin', name), (err) => {
+       console.log('bin created')
+     });
+   console.log('done!');
+  });
+}
+
+
+// ncp(join(__dirname, '../node_modules'), destination + '/node_modules', (err) => {
+//   if(err) {
+//     return console.log('errorrr')
+//   }
+//   console.log('done')
+// })
