@@ -9,7 +9,6 @@ var join = require('path').join
 var inquirer = require("inquirer")
 var mkdir = require("mkdirp")
 var dependencies = require('../package.json').devDependencies
-var ncp = require('ncp').ncp;
 var exists = fs.existsSync;
 
 
@@ -50,11 +49,6 @@ function create(name) {
   write(dir + '/package.json', pkg(name))
   write(dir + '/index.js', index(name))
   write(dir + '/vomit.json', mock(name))
-  install('browserify', dir)
-  install('tape', dir)
-  install('tape-run', dir)
-  install('vomit', dir)
-  install('vomit-live', dir)
 }
 
 
@@ -186,36 +180,3 @@ function write(path, content) {
     writer.end()
   }
 }
-
-
-/**
- * Install dependencies.
- *
- * @param {String} name
- * @param {String} destination
- * @api public
- */
-
-function install(name, destination) {
-  var dir = join(__dirname, '../node_modules')
-  ncp(dir + '/' + name, destination + '/node_modules/' + name, err => {
-   if (err) {
-     return console.error(err);
-   }
-
-   fs.symlink(
-     join(dir, '.bin', name),
-     join(destination, './node_modules/.bin', name), (err) => {
-       console.log('bin created')
-     });
-   console.log('done!');
-  });
-}
-
-
-// ncp(join(__dirname, '../node_modules'), destination + '/node_modules', (err) => {
-//   if(err) {
-//     return console.log('errorrr')
-//   }
-//   console.log('done')
-// })
