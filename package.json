@@ -6,7 +6,8 @@
   "scripts": {
     "test": "browserify test/*.js | tape-run",
     "test:headless": "zuul -- test/*.js",
-    "test:lint": "standard index.js | snazzy"
+    "test:lint": "standard index.js | snazzy",
+    "build:standalone" : "browserify vomit.js --standalone vomit > dist/vomit.js"
   },
   "bin": {
     "vomit": "bin/vomit",
