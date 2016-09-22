@@ -113,3 +113,5 @@ function list(arr) {
   `
 }
 ```
+
+The 5 minutes are now gone! We hope you got a gist of what vomit is capable to do and how easy it is to learn. Please refer to the documentation to know how to use other feature such as HTML5 web components, server side rendering or SVG components.
