@@ -28,7 +28,7 @@ function component(data) {
   return vomit`
     <button aria-expanded="${data.expanded}">Hello ${data.name}</button>
     <ul aria-hidden="${!data.expanded}">
-      ${data.list.map(item => vomit`<li>${item}</li>`)}
+      ${data.rainbow.map(item => vomit`<li>${item}</li>`)}
     </ul>
   `
 }
@@ -47,7 +47,7 @@ Let's see it in action and add a little bit more colour to our example:
 function component(data) {
   var rainbow = vomit(list)
 
-  var arr = data.list
+  var arr = data.rainbow
   setInterval(function() {
     var random = Math.floor(Math.random() * arr.length) + 1  
     rainbow(arr.slice(0, random))
@@ -55,7 +55,7 @@ function component(data) {
 
   return vomit`
     <button aria-expanded="${data.expanded}">Hello ${data.name}</button>
-    ${rainbow}
+    ${rainbow(arr)}
   `
 }
 
