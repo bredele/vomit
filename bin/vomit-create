@@ -5,9 +5,11 @@
  */
 
 var fs = require('fs')
+var relative = require('path').relative
 var join = require('path').join
 var inquirer = require("inquirer")
 var mkdir = require("mkdirp")
+var chalk = require('chalk')
 var dependencies = require('../package.json').devDependencies
 var exists = fs.existsSync;
 
@@ -186,9 +188,9 @@ function mock(name) {
 
 function write(path, content) {
   if (exists(path)) {
-    console.log('exists', path)
+    console.log(chalk.yellow('exists :'), relative(__dirname, path))
   } else {
-    console.log('create', path);
+    console.log(chalk.blue('create :'), relative(__dirname, path));
     var writer = fs.createWriteStream(path)
     writer.write(content)
     writer.end()
