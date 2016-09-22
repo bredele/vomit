@@ -69,6 +69,11 @@ function pkg(name, version) {
     "test": "browserify test/*.js | tape-run",
     "build" : ""
   },
+  "keywords": [
+    "vomit-component",
+    "component",
+    "vomit"
+  ],
   "devDependencies": {
     "browserify": "${dependencies.browserify}",
     "tape": "${dependencies.tape}",
