@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "browserify test/*.js | tape-run",
-    "test:headless": "zuul -- test/*.js",
+    "test:sauce": "zuul -- test/*.js",
     "test:lint": "standard index.js | snazzy",
     "build": "npm run build:dev && npm run build:prod",
     "build:standalone": "browserify vomit.js --debug --standalone vomit",

@@ -3,7 +3,7 @@ node_js:
 - '6'
 script:
   - npm run test
-  - npm run test:headless
+  - npm run test:sauce
 addons:
   apt:
     packages:
