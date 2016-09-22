@@ -9,6 +9,10 @@
     "test:lint": "standard index.js | snazzy",
     "build:standalone" : "browserify vomit.js --standalone vomit > dist/vomit.js"
   },
+  "files": [
+    "dist/vomit.js",
+    "dist/vomit.min.js",
+  ],
   "bin": {
     "vomit": "bin/vomit",
     "vomit-create": "bin/vomit-create",

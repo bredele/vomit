@@ -23,8 +23,10 @@ $ vomit --help
 
 If you don't use modules bundler, you can include vomit as a global variable by downloading the standalone version and include it with a script tag:
 
-<a href="https://github.com/bredele/vomit/blob/master/dist/vomit.js" target="_blank">Development version</a>
-<a href="https://github.com/bredele/vomit/blob/master/dist/vomit.min.js" target="_blank">Production version</a>
+
+
+<a style="color:#EE6650;border:1px solid #EE6650;padding: 1em 1.5em;display:block;" href="https://github.com/bredele/vomit/blob/master/dist/vomit.js" target="_blank">Development version</a>
+<a style="color:#EE6650;border:1px solid #EE6650;padding: 1em 1.5em;display:block;" href="https://github.com/bredele/vomit/blob/master/dist/vomit.min.js" target="_blank">Production version</a>
 
 ## Bower
 

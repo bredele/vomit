@@ -1,4 +1,4 @@
-Let's start with a quick 5 minutes tutorial of Vomit features. <!-- say if they wanna know the motivation to go take a look at his blog post -->
+Let's start with a quick 5 minutes tutorial of Vomit features.
 
 ## Hello World
 
