@@ -24,7 +24,7 @@ var el = vomit`<section>
 Vomit does not force you into any syntax/API but instead uses the power of JavaScript [template literals](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings) built in your browser. String substitution (expression between `${}`) presents many [benefits](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings) and Vomit makes it even better allowing you to substitute Objects, Arrays, DOM Elements, Functions, **Promises and even Streams**.
 
 Other features are:
-- A 5 minutes learning curve (a function call to create an element, an other function call to update it)
+- A 5 minutes learning curve (checkout out our [tutorial]())
 - Component oriented development using DOM diffing based on real DOM (not virtual DOM)
 - Separate and optimize rendering of static and dynamic content
 - HTML5 Web Component
@@ -32,15 +32,19 @@ Other features are:
 - Works with SVG
 - 2kb minified + gzipped, ideal for mobile and to include as dependency
 
-You'll find Vomit disgustingly easy to learn. To check out live examples and docs, visit [our website](http://bredele.github.io/vomit).
+You'll find Vomit disgustingly easy to learn. Please check out [live examples]() and [docs]().
+
+## Question
+
+For questions and feedback please use the [Gitter chat room](). For support, bug reports and or feature requests please use the issue list of this repo and make sure it's not present yet in our [reporting checklist]().
 
 ## Contribution
 
-For questions and feedback please use the [Slack chat room](). For support, bug reports and or feature requests please use the issue list of this repo.
-
-[![NPM](https://nodei.co/npm/vomit.png)](https://nodei.co/npm/vomit/)
+Vomit is an open source project and would not exist without its community. If you want to participate please make sure to read the contributing guide before making a pull request. If you have any vomit-related project, component or other let everyone know on our [chat room]() or in our [wiki]().
 
 ## License
+
+[![NPM](https://nodei.co/npm/vomit.png)](https://nodei.co/npm/vomit/)
 
 The MIT License (MIT)
 
