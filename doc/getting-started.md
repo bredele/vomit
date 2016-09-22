@@ -86,7 +86,7 @@ We believe Vomit is the right fit for you because it allows to address concerns 
 ## Async component
 
 Rare are the applications that do not have to deal with IO bounds. Most of the times you will have to update your components with data coming from a server with AJAX for example.
-Vomit is the only library out there that allows you to substitute async patterns such as Promises or Streams to facilitate async update.
+Vomit is the only library out there that allows you to substitute async patterns such as Promises or Streams to facilitate asynchronous update.
 
 Here's our example with a list of colours fetched from an external server:
 
