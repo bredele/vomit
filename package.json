@@ -7,11 +7,14 @@
     "test": "browserify test/*.js | tape-run",
     "test:headless": "zuul -- test/*.js",
     "test:lint": "standard index.js | snazzy",
-    "build:standalone" : "browserify vomit.js --standalone vomit > dist/vomit.js"
+    "build": "npm run build:dev && npm run build:prod",
+    "build:standalone": "browserify vomit.js --debug --standalone vomit",
+    "build:dev": "npm run build:standalone > dist/vomit.js",
+    "build:prod": ""
   },
   "files": [
     "dist/vomit.js",
-    "dist/vomit.min.js",
+    "dist/vomit.min.js"
   ],
   "bin": {
     "vomit": "bin/vomit",
@@ -35,7 +38,6 @@
   },
   "homepage": "https://github.com/bredele/vomit#readme",
   "devDependencies": {
-    "babelify": "^7.3.0",
     "browserify": "^13.0.0",
     "chalk": "^1.1.3",
     "inquirer": "^1.1.3",

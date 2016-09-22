@@ -24,9 +24,11 @@ $ vomit --help
 If you don't use modules bundler, you can include vomit as a global variable by downloading the standalone version and include it with a script tag:
 
 
-
-<a style="color:#EE6650;border:1px solid #EE6650;padding: 1em 1.5em;display:block;" href="https://github.com/bredele/vomit/blob/master/dist/vomit.js" target="_blank">Development version</a>
+<a style="color:#EE6650;border:1px solid #EE6650;padding: 1em 1.5em;display:block;" href="https://github.com/bredele/vomit/blob/master/dist/vomit.js" target="_blank">Development version</a><br>
 <a style="color:#EE6650;border:1px solid #EE6650;padding: 1em 1.5em;display:block;" href="https://github.com/bredele/vomit/blob/master/dist/vomit.min.js" target="_blank">Production version</a>
+
+
+Important: because Vomit relies on ES6 syntax, you can only use standalone versions with the latest browsers or compile your code for next generation JavaScript.
 
 ## Bower
 
@@ -45,5 +47,3 @@ cd vomit
 npm install
 npm run build
 ```
-
-Important: the command `npm run build` can be used with your continuous integration tools in order to build your own version of Vomit.
