@@ -5,8 +5,7 @@ We did the choice with vomit to not introduce any kind of state in your componen
 ```vomit
 function component(seconds) {
   var ui = vomit(timer)
-  var secondsElapsed = 0
-  setInterval(() => ui(++secondsElapsed), 1000)
+  setInterval(() => ui(++seconds), 1000)
   return ui
 }
 

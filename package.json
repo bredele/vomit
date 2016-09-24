@@ -16,11 +16,6 @@
     "dist/vomit.js",
     "dist/vomit.min.js"
   ],
-  "bin": {
-    "vomit": "bin/vomit",
-    "vomit-create": "bin/vomit-create",
-    "vomit-github": "bin/vomit-github"
-  },
   "browser": "vomit.js",
   "repository": {
     "type": "git",
