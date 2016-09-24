@@ -9,7 +9,8 @@
     "test:lint": "standard index.js | snazzy",
     "build": "npm run build:dev && npm run build:prod",
     "build:dev": "browserify vomit.js --debug --standalone vomit > dist/vomit.js",
-    "build:prod": ""
+    "build:prod": "",
+    "examples" : ""
   },
   "files": [
     "dist/vomit.js",
