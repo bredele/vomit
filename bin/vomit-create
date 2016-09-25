@@ -10,9 +10,9 @@ var join = require('path').join
 var inquirer = require("inquirer")
 var mkdir = require("mkdirp")
 var chalk = require('chalk')
-var dependencies = require('../package.json').devDependencies
+var conf = require('../package.json')
+var dependencies = conf.devDependencies
 var exists = fs.existsSync;
-
 
 /**
  * Component name
@@ -61,7 +61,7 @@ function create(name) {
  * @api private
  */
 
-function pkg(name, version) {
+function pkg(name) {
   return `{
   "name": "${name}",
   "main": "index.js",
@@ -79,10 +79,10 @@ function pkg(name, version) {
     "browserify": "${dependencies.browserify}",
     "tape": "${dependencies.tape}",
     "tape-run": "${dependencies['tape-run']}",
-    "vomit-live": "github:bredele/vomit-live"
+    "vomit-live": "${conf.devDependencies['vomit-live']}"
   },
   "dependencies": {
-    "vomit": "github:bredele/vomit"
+    "vomit": "^${conf.version}"
   }
 }`
 }

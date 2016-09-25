@@ -1,6 +1,6 @@
 {
   "name": "vomit",
-  "version": "0.9.16",
+  "version": "0.9.17",
   "description": "virtual dom which does not suck",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,7 @@
     "examples": "node build/examples.js"
   },
   "files": [
+    "vomit.js",
     "dist/vomit.js",
     "dist/vomit.min.js"
   ],
