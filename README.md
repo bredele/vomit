@@ -32,8 +32,9 @@ Other features are:
 - Works server side
 - Works with SVG
 - 2kb minified + gzipped, ideal for mobile and to include as dependency
+- share the same code engine than the MVVM library [brick](http://github.com/bredele/brick)
 
-You'll find Vomit disgustingly easy to learn. Please check out [live examples]() and [docs]().
+You'll find Vomit disgustingly easy to learn. Please check out [live examples](/examples) and [docs](/doc).
 
 ## Question
 
