@@ -35,6 +35,7 @@ Vomit uses Template Literals to create DOM elements and allows you to substitute
   * [Objects](/doc/placeholders/object.md)  
   * [Promises](/doc/placeholders/promise.md)  
   * [Streams](/doc/placeholders/stream.md)
+
 as placeholders.
 
 ## Example

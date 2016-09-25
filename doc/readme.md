@@ -11,7 +11,7 @@
   * [Object](/doc/placeholders/object.md)  
   * [Promise](/doc/placeholders/promise.md)  
   * [Stream](/doc/placeholders/stream.md)
-* [Component](/doc/component/index.md)
+* [Component](/doc/component/readme.md)
   * [Static](/doc/component/static.md)   
   * [Dynamic](/doc/component/dynamic.md)   
   * [Web component](/doc/component/web-component.md)        
