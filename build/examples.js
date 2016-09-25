@@ -26,7 +26,7 @@ app.use('/examples/:name', (req, res) => {
         <script src="/bundle.js"></script>
       </head>
       <body>
-      ${fs.createReadStream(dir + '/index.md').pipe(markdown(JSON.parse(data)))}
+      ${fs.createReadStream(dir + '/readme.md').pipe(markdown(JSON.parse(data)))}
       </body>
     </html>
     `.pipe(res)
@@ -59,7 +59,7 @@ app.use('/', (req, res) => {
       <title>Vomit examples</title>
     </head>
     <body>
-    ${fs.createReadStream(join(__dirname, '../examples/index.md')).pipe(markdown())}
+    ${fs.createReadStream(join(__dirname, '../examples/readme.md')).pipe(markdown())}
     </body>
   </html>
   `.pipe(res)
