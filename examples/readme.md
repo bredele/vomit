@@ -1,6 +1,7 @@
 # Vomit examples
 
 * [simple](/examples/simple)
+* [dynamic](/examples/dynamic)
 * [timer](/examples/timer)
 * [todo](/examples/todo)
 
