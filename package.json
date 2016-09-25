@@ -14,7 +14,7 @@
   },
   "bin" : {
     "vomit" : "bin/vomit",
-    "vomit-create" : "bin/comit-create"
+    "vomit-create" : "bin/vomit-create"
   },
   "files": [
     "dist/vomit.js",
