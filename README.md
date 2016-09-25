@@ -38,7 +38,7 @@ You'll find Vomit disgustingly easy to learn. Please check out [live examples](/
 
 ## Question
 
-For questions and feedback please use the [Gitter chat room](). For support, bug reports and or feature requests please use the issue list of this repo and make sure it's not present yet in our [reporting checklist]().
+For questions and feedback please use the [Gitter chat room](https://gitter.im/vomitjs/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link). For support, bug reports and or feature requests please use the issue list of this repo and make sure it's not present yet in our [reporting checklist]().
 
 ## Contribution
 
