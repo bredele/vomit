@@ -17,6 +17,7 @@ tape('should call function on event', (test) => {
 
 tape('should call muiltiple function on event', (test) => {
   test.plan(1)
+  var name = 'vomit'
   var hello = function() {
     this.innerHTML += 'hello '
   }
@@ -24,7 +25,7 @@ tape('should call muiltiple function on event', (test) => {
   var world = function() {
     this.innerHTML += 'world!'
   }
-  var btn = vomit`<button onclick="${hello}${world}"></button>`
+  var btn = vomit`<button onclick="${name}${hello}${world}"></button>`
   trigger('click', btn)
   test.equal(btn.outerHTML, '<button onclick="">hello world!</button>')
 })

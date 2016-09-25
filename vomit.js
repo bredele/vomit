@@ -87,8 +87,7 @@ function attribute(parent, node, values) {
 /**
  * Create simple event listener from multiple functions.
  *
- * @note right now we make the assumption all placeholders
- * in a listener should be functions
+ * @note right now we check they are function when event is trigerred.
  *
  * @param {Array} arr
  * @return {Function}
@@ -98,7 +97,7 @@ function attribute(parent, node, values) {
 function listen(arr) {
   return function(event) {
     var el = this
-    arr.map(fn => fn.call(this, event))
+    arr.map(fn => typeof fn == 'function' ? fn.call(this, event) : null)
   }
 }
 
