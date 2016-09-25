@@ -1,6 +1,6 @@
 {
   "name": "vomit",
-  "version": "0.9.14",
+  "version": "0.9.15",
   "description": "virtual dom which does not suck",
   "main": "index.js",
   "scripts": {
@@ -43,8 +43,8 @@
     "stream": "0.0.2",
     "tape": "^4.6.0",
     "tape-run": "^2.1.3",
-    "vomit-live": "^1.0.0",
-    "vomit-markdown": "^1.0.0",
+    "vomit-live": "^1.0.1",
+    "vomit-markdown": "^1.0.1",
     "win-fork": "^1.1.1",
     "zuul": "^3.9.0"
   },
