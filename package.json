@@ -1,6 +1,6 @@
 {
   "name": "vomit",
-  "version": "0.9.11",
+  "version": "0.9.12",
   "description": "virtual dom which does not suck",
   "main": "index.js",
   "scripts": {
@@ -13,8 +13,8 @@
     "examples": "node build/examples.js"
   },
   "bin" : {
-    "vomit" : "bin/vomit",
-    "vomit-create" : "bin/vomit-create"
+    "vomit" : "./bin/vomit",
+    "vomit-create" : "./bin/vomit-create"
   },
   "files": [
     "dist/vomit.js",
