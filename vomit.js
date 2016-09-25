@@ -52,7 +52,7 @@ function bind(el, values) {
       var attrs = node.attributes
       // forEach faster?
       for(var i = 0, l = attrs.length; i < l; i++) {
-        attribute(attrs[i], values)
+        attribute(node, attrs[i], values)
       }
     } else text(node, values)
   })
@@ -67,18 +67,40 @@ function bind(el, values) {
  * @api private
  */
 
-function attribute(node, values) {
+function attribute(parent, node, values) {
   var str = node.value
-  node.value = ''
+  var name = node.nodeName
   var arr = str.split('${0}')
-  if(arr[0]) spitup(node, arr[0])
-  for(var i = 1, l = arr.length; i < l; i++) {
-    spitup(node, values.shift())
-    var val = arr[i]
-    if(val) spitup(node, val)
+  node.value = ''
+  if(name.slice(0,2) == 'on') {
+    parent[name] = listen(values.splice(0, arr.length - 1))
+  } else {
+    if(arr[0]) spitup(node, arr[0])
+    for(var i = 1, l = arr.length; i < l; i++) {
+      spitup(node, values.shift())
+      var val = arr[i]
+      if(val) spitup(node, val)
+    }
   }
 }
 
+/**
+ * Create simple event listener from multiple functions.
+ *
+ * @note right now we make the assumption all placeholders
+ * in a listener should be functions
+ *
+ * @param {Array} arr
+ * @return {Function}
+ * @api private
+ */
+
+function listen(arr) {
+  return function(event) {
+    var el = this
+    arr.map(fn => fn.call(this, event))
+  }
+}
 
 /**
  * Interpolate text nodes with values.
