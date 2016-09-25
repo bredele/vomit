@@ -56,7 +56,6 @@ function create(name) {
 
 /**
  * Create package.json template.
-
  * @param {String} name
  * @return {String}
  * @api private
@@ -91,7 +90,6 @@ function pkg(name, version) {
 
 /**
  * Create index.js template.
-
  * @param {String} name
  * @return {String}
  * @api private
@@ -101,16 +99,13 @@ function index(name) {
   return `/**
  * Component dependencies.
  */
-
  var vomit = require('vomit')
-
  /**
   * Expose ${name} component
   *
   * @param {Object} data
   * @api public
   */
-
  module.exports = function(data) {
    return vomit\`<div class="component">
      <button aria-expanded="\${!data.expanded}">\${data.label}</button>
@@ -126,10 +121,8 @@ function test(name) {
   return `/**
  * Test dependencies.
  */
-
 var test = require('tape')
 var component = require('..')
-
 test('component ${name} is a function', assert => {
   assert.plan(1)
   assert.equal(typeof component, 'function')
@@ -139,7 +132,6 @@ test('component ${name} is a function', assert => {
 
 /**
  * Create style template.
-
  * @param {String} name
  * @return {String}
  * @api private
