@@ -1,8 +1,39 @@
-Arrays can be substituted in all possible DOM nodes.
+# Functions
 
-## attribute
+When an array is used as a placeholder, Vomit will concatenate and insert the values of every item into this array.
 
-Here's an example of array substitution in a button `class` attribute.
+```js
+var arr = ['hello ', 'world!']
+vomit`<button>${arr}</button>`
+```
+
+result:
+
+```html
+<button>Hello world!</button>
+```
+
+Arrays are especially useful to create lists.
+
+```js
+var rainbow = ['red', 'orange', 'yellow']
+vomit`<ul>${rainbow.map(color => vomit`<li>${color}</li>`)}</ul>`
+```
+
+result:
+
+```html
+<ul>
+  <li>red</li>
+  <li>orange</li>
+  <li>yellow</li>    
+</ul>
+```
+
+
+## Attribute
+
+Arrays placeholder are a bit different when used inside HTML attributes. Vomit will insert and separate the values of every items with a whitespace. This behaviour is especially useful with the attribute `class`:
 
 ```js
 var classes = ['active', 'shown']
@@ -13,29 +44,4 @@ and the result:
 
 ```html
 <button class="active shown"></button>
-```
-
-## child node
-
-Arrays can be used to generate multiple child nodes in a easy and comprehensive way.
-
-```js
-var rainbow = ['red', 'orange', 'yellow', 'green', 'blue', 'purple']
-vomit`<ul>${rainbow.map(color => {
-  return vomit`<li class="${color}">${color}</li>`
-})}</ul>`
-```
-
-Here's the result :
-
-
-```html
-<ul>
-  <li class="red">red</li>
-  <li class="orange">orange</li>
-  <li class="yellow">yellow</li>
-  <li class="green">green</li>
-  <li class="blue">blue</li>
-  <li class="purple">purple</li>        
-</ul>
 ```
