@@ -42,7 +42,7 @@ else {
  */
 
 function create(name) {
-  var dir = __dirname + '/' + name
+  var dir = join('.', name)
   mkdir(dir)
   mkdir(dir + '/node_modules')
   mkdir(dir + '/node_modules/.bin')
@@ -180,9 +180,9 @@ function mock(name) {
 
 function write(path, content) {
   if (exists(path)) {
-    console.log(chalk.yellow('exists :'), relative(__dirname, path))
+    console.log(chalk.yellow('exists :'), relative('.', path))
   } else {
-    console.log(chalk.blue('create :'), relative(__dirname, path));
+    console.log(chalk.blue('create :'), relative('.', path));
     var writer = fs.createWriteStream(path)
     writer.write(content)
     writer.end()
