@@ -10,7 +10,7 @@
     "build": "npm run build:dev && npm run build:prod",
     "build:dev": "browserify vomit.js --debug --standalone vomit > dist/vomit.js",
     "build:prod": "",
-    "examples" : ""
+    "examples": "node build/examples.js"
   },
   "files": [
     "dist/vomit.js",
@@ -35,6 +35,7 @@
   "devDependencies": {
     "browserify": "^13.0.0",
     "chalk": "^1.1.3",
+    "express": "^4.14.0",
     "inquirer": "^1.1.3",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
@@ -43,6 +44,7 @@
     "tape": "^4.6.0",
     "tape-run": "^2.1.3",
     "vomit-live": "github:bredele/vomit-live",
+    "vomit-markdown": "github:bredele/vomit-markdown",
     "win-fork": "^1.1.1",
     "zuul": "^3.9.0"
   },
