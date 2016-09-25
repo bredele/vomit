@@ -59,7 +59,7 @@ app.use('/', (req, res) => {
       <title>Vomit examples</title>
     </head>
     <body>
-    Hello
+    ${fs.createReadStream(join(__dirname, '../examples/index.md')).pipe(markdown())}
     </body>
   </html>
   `.pipe(res)

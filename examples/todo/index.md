@@ -3,29 +3,23 @@
 Snap together components like you would do with lego bricks to create a small Todo application.
 
 ```vomit
-function component() {
-  var todos = []
+function component(todos) {
   var list = vomit(ul)
+  var add = function(ev) {
+    var input = this.todo
+    todos.push(input.value)
+    list(todos)
+    ev.preventDefault()
+    input.value = ''
+  }
   return vomit`<div>
     <h3>TODO</h3>
     ${list(todos)}
-    ${form((todo) => {
-      todos.push(todo)
-      list(todos)
-    })}
+    <form onsubmit="${add}">
+      <input name="todo"/>
+      <button>Add</button>
+    </form>
   </div>`
-}
-
-function form(cb) {
-  var el = vomit`<form>
-    <input name="todo" type="text"/>
-    <button>Add</button>
-  </form>`
-  el.addEventListener('submit', event => {
-    cb(el.todo.value)
-    event.preventDefault()
-  })
-  return el
 }
 
 function ul(arr) {
