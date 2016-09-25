@@ -2,11 +2,11 @@ Let's start with a quick 5 minutes tutorial of Vomit features.
 
 ## Hello World
 
-Let's create a vomit component called `hello-world`. If you've not already [installed]() vomit and its CLI, please type the following command in your terminal:
+Let's create a vomit component called `hello-world`. If you've not already [installed](/doc/installation.md) vomit and its CLI, please clone vomit and type the following command in your terminal:
 
 ```shell
 # install cli
-$ npm install -g vomit
+$ npm link
 ```
 and then type:
 

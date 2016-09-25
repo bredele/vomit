@@ -13,7 +13,7 @@ Vomit also comes with tools to test, visualize and author components. Using NPM,
 
 ```shell
 # install cli
-$ npm install -g vomit
+$ npm link
 
 # display vomit cli help
 $ vomit --help
