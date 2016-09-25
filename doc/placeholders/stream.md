@@ -12,6 +12,8 @@ result:
 <p>This is the content of the file lorem.txt</p>
 ```
 
+  > Take a look at our examples [server](build/examples.js) for some example of vomit server side.
+
 The stream placeholder syntax is the same than everything else in Vomit. It opens the door to a multitude of libraries and modules out there using stream as their main interface.
 
 ## Event emitter
