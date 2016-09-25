@@ -4,6 +4,7 @@
 * [dynamic](/examples/dynamic)
 * [timer](/examples/timer)
 * [todo](/examples/todo)
+* [svg](/examples/svg)
 
 ## Installation
 

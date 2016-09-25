@@ -1,6 +1,6 @@
 ## A Dynamic Component
 
-It is possible to create component that update themselves by simply wrapping a function (or static component) with vomit.
+It is possible to create component that update themselves by simply wrapping a function (or [static component](/examples/simple)) with vomit.
 
 
 ```vomit
