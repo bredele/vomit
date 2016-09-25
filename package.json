@@ -12,6 +12,10 @@
     "build:prod": "",
     "examples": "node build/examples.js"
   },
+  "bin" : {
+    "vomit" : "bin/vomit",
+    "vomit-create" : "bin/comit-create"
+  },
   "files": [
     "dist/vomit.js",
     "dist/vomit.min.js"
