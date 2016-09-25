@@ -43,14 +43,14 @@
     "stream": "0.0.2",
     "tape": "^4.6.0",
     "tape-run": "^2.1.3",
-    "vomit-live": "github:bredele/vomit-live",
-    "vomit-markdown": "github:bredele/vomit-markdown",
+    "vomit-live": "^1.0.0",
+    "vomit-markdown": "^1.0.0",
     "win-fork": "^1.1.1",
     "zuul": "^3.9.0"
   },
   "dependencies": {
     "domwalk": "^1.1.0",
-    "html-stream": "github:bredele/html-stream",
+    "html-stream": "^1.0.0",
     "molder": "^1.2.0",
     "morphdom": "^1.3.0",
     "regurgitate": "^1.0.1",
