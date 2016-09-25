@@ -4,36 +4,35 @@ Snap together components like you would do with lego bricks to create a small To
 
 ```vomit
 function component() {
-  var items = []
-  var todos = vomit(list)
+  var todos = []
+  var list = vomit(ul)
   return vomit`<div>
     <h3>TODO</h3>
-    ${todos(items)}
-    ${form((item) => {
-      items.push(item)
-      todos(items)
+    ${list(todos)}
+    ${form((todo) => {
+      todos.push(todo)
+      list(todos)
     })}
   </div>`
 }
 
 function form(cb) {
-  var input = vomit`<input type="text"/>`
   var el = vomit`<form>
-    ${input}
+    <input name="todo" type="text"/>
     <button>Add</button>
   </form>`
   el.addEventListener('submit', event => {
-    cb(input.value)
+    cb(el.todo.value)
     event.preventDefault()
   })
   return el
 }
 
-function list(arr) {
+function ul(arr) {
   return vomit`<ul>
     ${arr.map(item => vomit`<li>${item}</li>`)}
   </ul>`
 }
 ```
 
-Have you noticed? Vomit allows you to easily compose together functions and elements with the placeholder syntax `${}`.
+Have you noticed? Vomit allows you to easily compose together functions and elements with the placeholder syntax `${}`. Most important you are not limited by the architectural choices made for you.
