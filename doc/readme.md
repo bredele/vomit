@@ -3,7 +3,7 @@
 * [Installation](/doc/installation.md)
 * [Getting Started](/doc/getting-started.md)
 * [Motivations](/doc/motivations.md)
-* [Placeholders](/doc/placeholders/index.md)
+* [Placeholders](/doc/placeholders/readme.md)
   * [Primitive](/doc/placeholders/primitive.md)
   * [Array](/doc/placeholders/array.md)
   * [Object](/doc/placeholders/object.md)
