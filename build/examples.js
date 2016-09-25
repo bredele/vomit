@@ -10,6 +10,27 @@ var browserify = require('browserify')
 var app = require('express')()
 
 /**
+ * Serve vomit.
+ */
+
+app.use('/bundle.js', (req, res) => {
+ browserify({standalone: 'vomit'})
+   .add('./vomit.js')
+   .bundle()
+   .pipe(res)
+})
+
+
+/**
+ * Serve styles.
+ */
+
+app.use('/bundle.css', (req, res) => {
+ fs.createReadStream(__dirname + '/build.css')
+   .pipe(res)
+})
+
+/**
  * Return example
  */
 
@@ -23,26 +44,18 @@ app.use('/examples/:name', (req, res) => {
       <head>
         <meta charset="utf-8">
         <title>${name} example</title>
+        <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Roboto:400,700,900/Open+Sans:400,700,900/Raleway:100,400,500,700,800,900">
+        <link rel="stylesheet" href="/bundle.css">
         <script src="/bundle.js"></script>
       </head>
       <body>
+      <div class="wrapper">
       ${fs.createReadStream(dir + '/readme.md').pipe(markdown(JSON.parse(data)))}
+      </div>
       </body>
     </html>
     `.pipe(res)
   })
-})
-
-
-/**
- * Serve vomit.
- */
-
-app.use('/bundle.js', (req, res) => {
-  browserify({standalone: 'vomit'})
-    .add('./vomit.js')
-    .bundle()
-    .pipe(res)
 })
 
 
@@ -57,9 +70,13 @@ app.use('/', (req, res) => {
     <head>
       <meta charset="utf-8">
       <title>Vomit examples</title>
+      <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Roboto:400,700,900/Open+Sans:400,700,900/Raleway:100,400,500,700,800,900">
+      <link rel="stylesheet" href="bundle.css">
     </head>
     <body>
-    ${fs.createReadStream(join(__dirname, '../examples/readme.md')).pipe(markdown())}
+      <div class="wrapper">
+      ${fs.createReadStream(join(__dirname, '../examples/readme.md')).pipe(markdown())}
+      </div>
     </body>
   </html>
   `.pipe(res)
