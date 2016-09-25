@@ -1,23 +1,25 @@
-## Simple event listener
+# Event listener
+
+When a function is used as a placeholder inside an attribute starting with 'on', Vomit will add that function as an event listener of the DOM element.
 
 ```js
-var btn = vomit`<button onclick="${submit}"></button>`
+vomit`<button onclick="${doSomething}">Hello World!</button>`
 
-function submit() {
+function doSomething() {
   // do something
 }
 ```
 
-## Chained event listeners
+It is also possible to call multiple functions on a single event:
 
 ```js
-var btn = vomit`<button onclick="${add}${submit}"></button>`
+var btn = vomit`<button onclick="${add}${submit}">Hello World!</button>`
 
 function add() {
-  // do something
+  // add something
 }
 
 function submit() {
-  // do something
+  // submit something
 }
 ```
