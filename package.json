@@ -1,8 +1,9 @@
 {
   "name": "vomit",
-  "version": "0.9.12",
+  "version": "0.9.13",
   "description": "virtual dom which does not suck",
   "main": "index.js",
+  "bin" : "./bin/vomit",
   "scripts": {
     "test": "browserify test/*.js | tape-run",
     "test:sauce": "zuul -- test/*.js",
@@ -11,10 +12,6 @@
     "build:dev": "browserify vomit.js --debug --standalone vomit > dist/vomit.js",
     "build:prod": "",
     "examples": "node build/examples.js"
-  },
-  "bin" : {
-    "vomit" : "./bin/vomit",
-    "vomit-create" : "./bin/vomit-create"
   },
   "files": [
     "dist/vomit.js",
