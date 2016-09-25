@@ -1,9 +1,8 @@
 {
   "name": "vomit",
-  "version": "0.9.13",
+  "version": "0.9.14",
   "description": "virtual dom which does not suck",
   "main": "index.js",
-  "bin" : "./bin/vomit",
   "scripts": {
     "test": "browserify test/*.js | tape-run",
     "test:sauce": "zuul -- test/*.js",
