@@ -1,8 +1,11 @@
 {
   "name": "vomit",
-  "version": "0.9.17",
+  "version": "0.9.18",
   "description": "virtual dom which does not suck",
   "main": "index.js",
+  "engines" : {
+    "node" : ">= 6.0.0"
+  },
   "scripts": {
     "test": "browserify test/*.js | tape-run",
     "test:sauce": "zuul -- test/*.js",
