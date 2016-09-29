@@ -1,7 +1,7 @@
 # Summary
 
 * [Installation](/doc/installation.md)
-* [Getting Started](/doc/getting-started.md)
+<!--- * [Getting Started](/doc/getting-started.md) -->
 * [Motivations](/doc/motivations.md)
 * [Placeholders](/doc/placeholders/readme.md)
   * [Primitive](/doc/placeholders/primitive.md)
