@@ -23,7 +23,7 @@ var el = vomit`<section>
 
 Vomit does not force you into any syntax/API but instead uses the power of JavaScript [template literals](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings) built in your browser. String substitution (expression between `${}`) presents many [benefits](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings) and Vomit makes it even better allowing you to substitute Objects, Arrays, DOM Elements, Functions, **Promises and even Streams**.
 
-Check out our [5 minutes getting started](https://github.com/bredele/vomit/blob/master/doc/getting-started.md)!
+<!--- Check out our [5 minutes getting started](https://github.com/bredele/vomit/blob/master/doc/getting-started.md)! -->
 
 Other features are:
 - Component oriented development using DOM diffing based on real DOM (not virtual DOM)
