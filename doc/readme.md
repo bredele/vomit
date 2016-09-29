@@ -1,7 +1,6 @@
 # Summary
 
 * [Installation](/doc/installation.md)
-<!--- * [Getting Started](/doc/getting-started.md) -->
 * [Motivations](/doc/motivations.md)
 * [Placeholders](/doc/placeholders/readme.md)
   * [Primitive](/doc/placeholders/primitive.md)
@@ -19,3 +18,7 @@
   * [Server side](/doc/extras/server.md)   
   * [SVG](/doc/extras/svg.md)   
 * [Contributing](/contributing.md)
+
+<!--- 
+[Getting Started](/doc/getting-started.md) 
+-->
