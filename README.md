@@ -11,10 +11,15 @@ Vomit is a simple function call that allows you to quickly build components that
 
 ```js
 function stopwatch(start) {
+  // create timer dynamic component
   var timer = vomit(function(seconds) {
     return vomit`<div>Seconds Elapsed: ${seconds}</div>`
   })
+
+  // update timer dom element every second
   setInterval(() => timer(++start), 1000)
+
+  // return timer dom element
   return timer(start)
 }
 ```
