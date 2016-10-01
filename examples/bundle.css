@@ -1,0 +1,112 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 400 11pt "Roboto", "Helvetica Neue", "Arial", sans-serif;
+  -webkit-font-feature-settings: "kern", "liga";
+  -moz-font-feature-settings: "kern", "liga";
+  -o-font-feature-settings: "kern", "liga";
+  font-feature-settings: "kern", "liga";
+  color: #333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font: 500 11pt "Destill", "Raleway", sans-serif;
+  margin-bottom: 2rem;
+}
+
+li {
+  line-height: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: #EE6650;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  line-height: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  margin-top: 5rem;
+  font-size: 14pt;
+}
+
+h2 {
+  margin-top: 3rem;
+  font-size: 12pt;
+}
+
+.wrapper {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 0 32px;
+  padding-bottom: 5rem;
+}
+
+
+/**
+ * Code
+ */
+
+pre {
+  position: relative;
+  background-color: #f9f9f9;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.lang-shell:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #ccc;
+  font: 500 12pt "Destill", "Raleway", sans-serif;
+  font-size: .6rem;
+  padding: .5rem;
+  content: 'SHELL';
+}
+
+.lang-js:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #ccc;
+  font: 500 12pt "Destill", "Raleway", sans-serif;
+  font-size: .6rem;
+  padding: .5rem;
+  content: 'JS';
+}
+
+/**
+ * Snippet example
+ */
+
+.vomit-snippet {
+  display: flex;
+  flex-direction: row;
+}
+
+.vomit-snippet .column {
+  flex: 1;
+}
+
+.vomit-snippet .column + .column {
+  padding: 3rem;
+}

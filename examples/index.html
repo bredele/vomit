@@ -3,8 +3,29 @@
   <head>
     <meta charset="utf-8">
     <title>Vomit examples</title>
+    <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Roboto:400,700,900/Open+Sans:400,700,900/Raleway:100,400,500,700,800,900">
+    <link rel="stylesheet" href="bundle.css">
   </head>
   <body>
-    Helloo
+    <div class="wrapper">
+      <h1 id="vomit-examples">Vomit examples</h1>
+      <ul>
+        <li><a href="/examples/simple">simple</a></li>
+        <li><a href="/examples/dynamic">dynamic</a></li>
+        <li><a href="/examples/timer">timer</a></li>
+        <li><a href="/examples/todo">todo</a></li>
+        <li><a href="/examples/svg">svg</a></li>
+      </ul>
+      <h2 id="installation">Installation</h2>
+      <p>To run the examples locally, please type:</p>
+      <pre><code class="lang-shell"># clone vomit repo
+      $ git clone https://github.com/bredele/vomit.git
+
+      # latest stable
+      $ npm run examples
+      </code></pre>
+      <p>Those examples are generated on the fly from a markdown file. We created especially for Vomit a new way to generate live example from documentation! Please check out the examples markdown files or <a href="https://github.com/bredele/vomit-markdown">vomit-markdown</a> for more information.</p>
+      <p>All tools created for vomit have been built with the vomit library, we encourage you to take a look at them and find new ways to use vomit on your projects.</p>
+    </div>
   </body>
 </html>
