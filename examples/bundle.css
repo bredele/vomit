@@ -13,6 +13,7 @@ body {
   color: #333;
 }
 
+
 h1,
 h2,
 h3,
@@ -111,30 +112,25 @@ pre {
   padding: 3rem;
 }
 
-Plus
-1 sur 5 740
 
-Tout imprimer Dans une nouvelle fenêtre
-css
-Boîte de réception
-x
-
-Olivier Wietrich <olivier.wietrich@gmail.com>
-13:59 (Il y a 0 minute)
-
-À moi
-html, body {
-  color: #333;
-  font-family: "RobotoDraft","Roboto",sans-serif;
-  font-size: 1em;
-  -webkit-font-smoothing: antialiased;
-/*    line-height: 1em;*/
-}
 
 header {
-display: flex;
-flex-direction: column;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navigation {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  font-size: 13px;
+  padding: 16px;
+}
+
+.navigation a[href^="/"] {
+  margin-left: 16px;
 }
 
 code, pre {
@@ -183,9 +179,7 @@ flex: 1;
 }
 
 .author {
-font-size: 13px;
-margin-left: auto;
-padding: 16px;
+  margin-right: auto;
 }
 
 
