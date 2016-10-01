@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Todo example</title>
+    <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Roboto:400,700,900/Open+Sans:400,700,900/Raleway:100,400,500,700,800,900">
+    <link rel="stylesheet" href="../bundle.css">
+    <script src="../bundle.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+<h2 id="an-application">An application</h2>
+<p>Snap together components like you would do with lego bricks to create a small Todo application.</p>
+<div class="vomit-snippet"><div class="column"><pre><code class="lang-js">function component(todos) {
+var list = vomit(ul)
+var add = function(ev) {
+var input = this.todo
+todos.push(input.value)
+list(todos)
+ev.preventDefault()
+input.value = &#39;&#39;
+}
+return vomit`&lt;div&gt;
+&lt;h3&gt;TODO&lt;/h3&gt;
+${list(todos)}
+&lt;form onsubmit=&quot;${add}&quot;&gt;
+&lt;input name=&quot;todo&quot;/&gt;
+&lt;button&gt;Add&lt;/button&gt;
+&lt;/form&gt;
+&lt;/div&gt;`
+}
+
+function ul(arr) {
+return vomit`&lt;ul&gt;
+${arr.map(item =&gt; vomit`&lt;li&gt;${item}&lt;/li&gt;`)}
+&lt;/ul&gt;`
+}
+</code></pre>
+</div><div class="column"><script>
+(function() {
+function component(todos) {
+var list = vomit(ul)
+var add = function(ev) {
+var input = this.todo
+todos.push(input.value)
+list(todos)
+ev.preventDefault()
+input.value = ''
+}
+return vomit`<div>
+<h3>TODO</h3>
+${list(todos)}
+<form onsubmit="${add}">
+<input name="todo"/>
+<button>Add</button>
+</form>
+</div>`
+}
+
+function ul(arr) {
+return vomit`<ul>
+${arr.map(item => vomit`<li>${item}</li>`)}
+</ul>`
+}
+document.currentScript.parentElement.appendChild(component(["first todo","second todo"]))
+})()</script></div></div><p>Have you noticed? Vomit allows you to easily compose together functions and elements with the placeholder syntax <code>${}</code>. Most important you are not limited by the architectural choices made for you.</p>
+
+</div>
+  </body>
+</html>
