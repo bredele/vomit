@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple example</title>
+    <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Roboto:400,700,900/Open+Sans:400,700,900/Raleway:100,400,500,700,800,900">
+    <link rel="stylesheet" href="../bundle.css">
+    <script src="../bundle.js"></script>
+  </head>
+  <body>
+  <div class="wrapper">
+    <h2 id="a-simple-component">A Simple Component</h2>
+    <p>A static component in vomit is a term used to describe a function that takes data and returns a DOM element.</p>
+    <div class="vomit-snippet"><div class="column"><pre><code class="lang-js">function component(name) {
+    return vomit`&lt;div&gt;Hello ${name}&lt;/div&gt;`
+    }
+    </code></pre>
+    </div><div class="column"><script>
+    (function() {
+    function component(name) {
+    return vomit`<div>Hello ${name}</div>`
+    }
+    document.currentScript.parentElement.appendChild(component("World"))
+    })()</script></div></div>
+  </div>
+  </body>
+</html>

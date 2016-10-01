@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dynamic example</title>
+    <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Roboto:400,700,900/Open+Sans:400,700,900/Raleway:100,400,500,700,800,900">
+    <link rel="stylesheet" href="../bundle.css">
+    <script src="../bundle.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h2 id="a-dynamic-component">A Dynamic Component</h2>
+      <p>It is possible to create component that update themselves by simply wrapping a function (or <a href="/examples/simple">static component</a>) with vomit.</p>
+      <div class="vomit-snippet"><div class="column"><pre><code class="lang-js">var component = vomit(function(data) {
+      return vomit`&lt;h2&gt;${data}&lt;/h2&gt;`
+      })
+
+      var titles = [
+      &#39;Vomit is a simple function&#39;,
+      &#39;Functions are the smallest composition unit&#39;,
+      &#39;Vomit is pure and predictable&#39;,
+      &#39;Vomit is awesome&#39;
+      ]
+
+      var i = 0
+      setInterval(function() {
+      component(titles[++i % 4])
+      }, 1000)
+      </code></pre>
+      </div><div class="column"><script>
+      (function() {
+      var component = vomit(function(data) {
+      return vomit`<h2>${data}</h2>`
+      })
+
+      var titles = [
+      'Vomit is a simple function',
+      'Functions are the smallest composition unit',
+      'Vomit is pure and predictable',
+      'Vomit is awesome'
+      ]
+
+      var i = 0
+      setInterval(function() {
+      component(titles[++i % 4])
+      }, 1000)
+      document.currentScript.parentElement.appendChild(component("This is a title component"))
+      })()</script></div></div><p>Minimum amount of changes are update thanks to a diffing strategy similar to other virtual dom implementations out there.</p>
+
+    </div>
+  </body>
+</html>

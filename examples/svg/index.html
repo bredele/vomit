@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SVG example</title>
+    <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Roboto:400,700,900/Open+Sans:400,700,900/Raleway:100,400,500,700,800,900">
+    <link rel="stylesheet" href="../bundle.css">
+    <script src="../bundle.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+     <h1 id="svg">SVG</h1>
+<p>Vomit works with SVG elements as it does with regular DOM nodes:</p>
+<div class="vomit-snippet"><div class="column"><pre><code class="lang-js">function component(text) {
+ return vomit`
+ &lt;svg&gt;
+   &lt;defs&gt;
+     &lt;linearGradient id=&quot;filler&quot; x=&quot;0%&quot; y=&quot;100%&quot;&gt;
+       &lt;stop stop-color=&quot;olivedrab&quot; offset=&quot;0%&quot;&gt;&lt;/stop&gt;
+       &lt;stop stop-color=&quot;peru&quot; offset=&quot;20%&quot;&gt;&lt;/stop&gt;
+       &lt;stop stop-color=&quot;goldenrod&quot; offset=&quot;40%&quot;&gt;&lt;/stop&gt;
+       &lt;stop stop-color=&quot;firebrick&quot; offset=&quot;60%&quot;&gt;&lt;/stop&gt;
+       &lt;stop stop-color=&quot;thistle&quot; offset=&quot;80%&quot;&gt;&lt;/stop&gt;
+       &lt;stop stop-color=&quot;sandybrown&quot; offset=&quot;100%&quot;&gt;&lt;/stop&gt;
+     &lt;/linearGradient&gt;
+   &lt;/defs&gt;
+   &lt;text y=&quot;70%&quot; font-size=&quot;40&quot; fill=&quot;url(#filler)&quot;&gt;${text}&lt;/text&gt;
+ &lt;/svg&gt;`
+}
+</code></pre>
+</div><div class="column"><script>
+(function() {
+function component(text) {
+ return vomit`
+ <svg>
+   <defs>
+     <linearGradient id="filler" x="0%" y="100%">
+       <stop stop-color="olivedrab" offset="0%"></stop>
+       <stop stop-color="peru" offset="20%"></stop>
+       <stop stop-color="goldenrod" offset="40%"></stop>
+       <stop stop-color="firebrick" offset="60%"></stop>
+       <stop stop-color="thistle" offset="80%"></stop>
+       <stop stop-color="sandybrown" offset="100%"></stop>
+     </linearGradient>
+   </defs>
+   <text y="70%" font-size="40" fill="url(#filler)">${text}</text>
+ </svg>`
+}
+document.currentScript.parentElement.appendChild(component("Lorem ipsum"))
+})()</script></div></div><p>All placeholders are working with SVG nodes as well as dynamic components.</p>
+
+     </div>
+  </body>
+</html>
