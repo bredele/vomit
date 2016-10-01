@@ -3,14 +3,12 @@
 We did the choice with vomit to not introduce any kind of state in your component. Creating a component is a simple as a function call. Updating a component should be the same.
 
 ```vomit
-function component(seconds) {
-  var ui = vomit(timer)
-  setInterval(() => ui(++seconds), 1000)
-  return ui(seconds)
-}
-
-function timer(seconds) {
-  return vomit`<div>Seconds Elapsed: ${seconds}</div>`
+function component(start) {
+  var timer = vomit(function(seconds) {
+    return vomit`<div>Seconds Elapsed: ${seconds}</div>`
+  })
+  setInterval(() => timer(++start), 1000)
+  return timer(start)
 }
 ```
 
