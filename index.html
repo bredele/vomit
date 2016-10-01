@@ -3,8 +3,84 @@
   <head>
     <meta charset="utf-8">
     <title>Vomit</title>
+    <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Roboto:400,700,900/Open+Sans:400,700,900/Raleway:100,400,500,700,800,900">
+    <link rel="stylesheet" href="./examples/bundle.css">
   </head>
   <body>
-    <a href="/vomit/examples">examples</a>
+    <header>
+    		<span class="author">Created by <a class="red" href="http://github.com/bredele" target="_blank">Olivier Wietrich</a></span>
+    		<h1 class="title">
+    			<span class="purple">V</span><span class="blue">o</span><span class="green">m</span><span class="yellow">i</span><span class="red">t</span></h1>
+    		<img src="https://camo.githubusercontent.com/f9249801f7077de8c53dafee2c2e7a058be9e4d3/687474703a2f2f7374617469632e74756d626c722e636f6d2f36376539643139373630663961623531316561373134326232363761303834302f657472746967722f7a6f686d717634706e2f74756d626c725f7374617469635f756e69636f726e70756b652e6a7067" alt="">
+    		<p class="description">V<span class="line">irtual d</span>om it<span class="line"> sucks</span></p>
+    		<nav>
+    			<a href=""><iframe src="//ghbtns.com/github-btn.html?user=bredele&repo=vomit&type=watch&count=true"
+    		    allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe></a>
+    			<a href=""><img src="https://img.shields.io/crates/l/rustc-serialize.svg" alt=""></a>
+    		</nav>
+    		<h2>Vomit and make your applications lose some weigth</h2>
+    	</header>
+    	<main>
+    		<section class="wrapper">
+    			<div class="grid">
+    				<div class="cell">
+    					<h3 class="purple">Everybody can vomit</h3>
+    					<p>Vomit is just plain function. No classes or decorators needed, you can create HTML elements in seconds.</p>
+    				</div>
+    				<div class="cell">
+    					<figure class="highlight lang-js"><table><tbody><tr><td class="gutter"><pre>1
+    2
+    </pre></td><td class="code"><pre><span class="purple">let</span> <span class="blue">btn</span> = <span class="">vomit</span><span class="green">`&lt;button&gt;hello world!&lt;/button&gt;`</span>
+    <span class="blue">document.body.</span>appendChild(<span class="blue">btn</span>)</pre></td></tr></tbody></table></figure>
+    				</div>
+    			</div>
+    			<div class="grid">
+    				<div class="cell"><figure class="highlight lang-js"><table><tbody><tr><td class="gutter"><pre>1
+    2
+    3
+    </pre></td><td class="code"><pre><span class="purple">let</span> label = <span class="green">'Everybody can vomit'</span>
+    <span class="purple">let</span> <span class="blue">title</span> = <span class="">vomit</span><span class="green">`&lt;h2&gt;<span class="red">${</span>label<span class="red">}</span>&lt;/h2&gt;`</span>
+    <span class="blue">document.body.</span>appendChild(<span class="blue">title</span>)</pre></td></tr></tbody></table></figure>Edit label</div>
+    <div class="cell">
+    	<p>No weird conventions, Vomit uses ES6 template strings and JavaScript to provide a simple and yet powerful library to build user interfaces.</p>
+    	<p>You can listen events, interpolate strings, numbers, arrays, booleans, functions and even streams or promises! <a class="red" href="">See all examples</a></p>
+    </div>
+    			</div>
+    		</section>
+    		<section class="wrapper">
+    			<div class="grid">
+    				<div class="cell">
+    					<h3 class="blue">All you can eat</h3>
+    					<p>Vomit can swallow functions and regurgitate them in order to create reusable components. What's nasty about it is that it updates your HTML everytime you call that function! At the opposite of some librairies out there such as React, vomit is using real DOM for diffing and patching.</p>
+    					<p>No weird conventions, Vomit uses ES6 template strings and JavaScript to provide a simple and yet powerful library to build user interfaces.</p>
+    				</div>
+    				<div class="cell"><figure class="highlight lang-js"><table><tbody><tr><td class="gutter"><pre>1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    10
+    11
+    12
+    13
+    </pre></td><td class="code"><pre><span class="purple">let</span> technicolor = <span class="">vomit(data => {
+      return vomit</span><span class="green">`&lt;ul&gt;
+        ${data.map(item => <span class="green">`&lt;li&gt;${item}&lt;/li&gt;`</span>)}
+      &lt;/ul&gt;`</span>
+    })
+
+    <span class="purple">let</span> <span class="blue">yawn</span> <span class="blue">= </span>technicolor([<span class="green">'green'</span>])
+    <span class="blue">document.body.</span>appendChild(<span class="blue">yawn</span>)
+
+    // update yawn element whenever you want
+    technicolor([<span class="green">'green'</span>, <span class="green">'red'</span>])
+    technicolor([<span class="green">'red'</span>, <span class="green">'purple'</span>, <span class="green">'yellow'</span>])</pre></td></tr></tbody></table></figure></div>
+    			</div>
+    		</section>
+    	</main>
   </body>
 </html>
