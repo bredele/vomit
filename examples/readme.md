@@ -11,6 +11,9 @@
 To run the examples locally, please type:
 
 ```shell
+# clone vomit repo
+$ git clone https://github.com/bredele/vomit.git
+
 # latest stable
 $ npm run examples
 ```
