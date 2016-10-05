@@ -156,6 +156,10 @@ top: 62px;
 right: 132px;
 }
 
+.subtitle {
+  margin: 1rem;
+}
+
 .description {
 right: 102px;
 position: relative;
