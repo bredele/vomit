@@ -1,4 +1,4 @@
-# Functions
+# Array
 
 When an array is used as a placeholder, Vomit will concatenate and insert the values of every item into this array.
 
