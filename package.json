@@ -3,8 +3,8 @@
   "version": "0.9.18",
   "description": "virtual dom which does not suck",
   "main": "index.js",
-  "engines" : {
-    "node" : ">= 6.0.0"
+  "engines": {
+    "node": ">= 6.0.0"
   },
   "scripts": {
     "test": "browserify test/*.js | tape-run",
@@ -55,10 +55,10 @@
   },
   "dependencies": {
     "domwalk": "^1.1.0",
-    "html-stream": "^1.0.0",
     "molder": "^1.2.0",
     "morphdom": "^1.3.0",
     "regurgitate": "^1.0.1",
-    "spitup": "^1.0.0"
+    "spitup": "^1.0.0",
+    "steroid": "^0.9.0"
   }
 }
