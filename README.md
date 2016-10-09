@@ -46,18 +46,15 @@ Check out [examples](/examples) and [docs](/doc) for more information.
 
 <!--- Check out our [5 minutes getting started](https://github.com/bredele/vomit/blob/master/doc/getting-started.md)! -->
 
-<!--- Vomit stands form **V**~~irtual d~~**OM IT** ~~sucks~~  -->
-
-Other features are:
-- Component oriented development using DOM diffing based on real DOM (not virtual DOM)
+Vomit stands form **V**~~irtual d~~**OM IT** ~~sucks~~ and ironically uses a virtual dom strategy based on real DOM. Other features are:
 - Separate and optimize rendering of static and dynamic content
 - HTML5 Web Component
 - Works server side
 - Works with SVG
-- 2kb minified + gzipped, ideal for mobile and to include as dependency
+- 3kb minified + gzipped, ideal for mobile and to include as dependency
 - share the same core engine than the MVVM library [brick](http://github.com/bredele/brick)
 
-You'll find Vomit disgustingly easy to learn. Please check out [live examples](/examples) and [docs](/doc).
+You'll find Vomit disgustingly easy to learn. Please check out our [5 minutes tutorial](https://github.com/bredele/vomit/blob/master/doc/getting-started.md) to get started,
 
 ## Question
 
