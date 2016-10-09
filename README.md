@@ -46,7 +46,7 @@ Check out [examples](/examples) and [docs](/doc) for more information.
 
 <!--- Check out our [5 minutes getting started](https://github.com/bredele/vomit/blob/master/doc/getting-started.md)! -->
 
-Vomit stands form **V**~~irtual d~~**OM IT** ~~sucks~~ and ironically uses a virtual dom strategy based on real DOM. Other features are:
+Vomit stands for **V**~~irtual d~~**OM IT** ~~sucks~~ and ironically uses a virtual dom strategy based on real DOM to efficiently update your components . Other features are:
 - Separate and optimize rendering of static and dynamic content
 - HTML5 Web Component
 - Works server side
