@@ -3,16 +3,27 @@
 
 [![vomit](http://static.tumblr.com/67e9d19760f9ab511ea7142b267a0840/etrtigr/zohmqv4pn/tumblr_static_unicornpuke.jpg)](http://requirebin.com/?gist=df0d460eb9506d5e8a17b3f33141b30b)
 
+
+Vomit is a JavaScript library for building stateless user interfaces.
+
+  * **Declarative**: Vomit leverages JavaScript template strings to create interactive UIs. Logic is written in JavaScript instead of templates, making your code more predictable, simple to understand and easier to debug.
+  * **Component-Based**: Build encapsulated components and compose them to make complex UIs. Everything is as simple as a function call!
+  * ** Async**: Vomit has been built with promises and streams at its core. Dealing with IO bounds has never been so easy!
+  * **Easy to learn**: Simple is better! We don't make any assumptions about your coding style or technology stack. 5 minutes are enough to learn Vomit!
+
+[Try it online!](http://requirebin.com/?gist=bbf4a3420785e831bdfa7a2dccc8b7ff)
+
+
 [![Build Status](https://travis-ci.com/bredele/vomit.svg?token=Y4CxXGeQJuzFDfs59QPR&branch=master)](https://travis-ci.com/bredele/vomit)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/vomitjs/Lobby)
 [![NPM](https://img.shields.io/npm/v/vomit.svg)](https://www.npmjs.com/package/vomit)
 [![Downloads](https://img.shields.io/npm/dm/vomit.svg)](http://npm-stat.com/charts.html?package=vomit)
 
-## Intro
-
-Vomit is a simple function call that allows you to quickly build components that update themselves. [Try it online!](http://requirebin.com/?gist=bbf4a3420785e831bdfa7a2dccc8b7ff)
+## Usage
 
 ```js
+var vomit = require('vomit')
+
 function stopwatch(start) {
   // create timer dynamic component
   var timer = vomit(function(seconds) {
@@ -25,11 +36,13 @@ function stopwatch(start) {
   // return timer dom element
   return timer(start)
 }
+
+document.body.appendChild(stopwatch(0));
 ```
 
 Vomit does not force you into any syntax/API but instead uses the power of JavaScript [template literals](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings) built in your browser. Quickly create DOM element that you can [compose](/doc/placeholders/) with Objects, Arrays, other DOM elements, Functions, **Promises and even Streams**.
 
-Check out [live examples](/examples) and [docs](/doc) for more information.
+Check out [examples](/examples) and [docs](/doc) for more information.
 
 ## Features
 
