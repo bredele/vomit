@@ -10,7 +10,7 @@
 
 ## Intro
 
-Vomit is a simple function call that allows you to quickly build components that update themselves.
+Vomit is a simple function call that allows you to quickly build components that update themselves. [Try it online!](http://requirebin.com/?gist=bbf4a3420785e831bdfa7a2dccc8b7ff)
 
 ```js
 function stopwatch(start) {
