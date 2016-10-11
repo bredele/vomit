@@ -49,10 +49,10 @@ Check out [examples](/examples) and [docs](/doc) for more information.
 Vomit stands for **V**~~irtual d~~**OM IT** ~~sucks~~ and ironically uses a virtual dom strategy based on real DOM to efficiently update your components . Other features are:
 - Separate and optimize rendering of static and dynamic content
 - HTML5 Web Component
-- Works server side
+- Server side rendering (check out [steroid](http://github.com/bredele/steroid))
 - Works with SVG
 - 3kb minified + gzipped, ideal for mobile and to include as dependency
-- share the same core engine than the MVVM library [brick](http://github.com/bredele/brick)
+- Share the same core engine than the MVVM library [brick](http://github.com/bredele/brick)
 
 You'll find Vomit disgustingly easy to learn. Please check out our [5 minutes tutorial](https://github.com/bredele/vomit/blob/master/doc/getting-started.md) to get started,
 
