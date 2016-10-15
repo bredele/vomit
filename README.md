@@ -42,6 +42,12 @@ Vomit does not force you into any syntax/API but instead uses the power of JavaS
 
 Check out [examples](/examples) and [docs](/doc) for more information.
 
+## Installation
+
+```shell
+npm install vomit --save
+```
+
 ## Features
 
 <!--- Check out our [5 minutes getting started](https://github.com/bredele/vomit/blob/master/doc/getting-started.md)! -->
