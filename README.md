@@ -48,6 +48,8 @@ Check out [examples](/examples) and [docs](/doc) for more information.
 npm install vomit --save
 ```
 
+[![NPM](https://nodei.co/npm/vomit.png)](https://nodei.co/npm/vomit/)
+
 ## Features
 
 <!--- Check out our [5 minutes getting started](https://github.com/bredele/vomit/blob/master/doc/getting-started.md)! -->
@@ -72,8 +74,6 @@ For questions and feedback please use the [Gitter chat room](https://gitter.im/v
 Vomit is an open source project and would not exist without its community. If you want to participate please make sure to read our <a href="https://github.com/bredele/contributing-guide" target="_blank">guideline</a> before making a pull request. If you have any vomit-related project, component or other let everyone know on our [chat room](https://gitter.im/vomitjs/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link) or in our wiki.
 
 ## License
-
-[![NPM](https://nodei.co/npm/vomit.png)](https://nodei.co/npm/vomit/)
 
 The MIT License (MIT)
 
