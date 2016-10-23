@@ -4,6 +4,7 @@
   [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/vomitjs/Lobby)
   [![NPM](https://img.shields.io/npm/v/vomit.svg)](https://www.npmjs.com/package/vomit)
   [![Downloads](https://img.shields.io/npm/dm/vomit.svg)](http://npm-stat.com/charts.html?package=vomit)
+  [![pledge](https://bredele.github.io/contributing-guide/community-pledge.svg)](https://github.com/bredele/contributing-guide/blob/master/community.md)
 
 [![vomit](http://static.tumblr.com/67e9d19760f9ab511ea7142b267a0840/etrtigr/zohmqv4pn/tumblr_static_unicornpuke.jpg)](http://requirebin.com/?gist=df0d460eb9506d5e8a17b3f33141b30b)
 
@@ -67,11 +68,11 @@ You'll find Vomit disgustingly easy to learn. Please check out our [5 minutes tu
 ## Question
 
 For questions and feedback please use the [Gitter chat room](https://gitter.im/vomitjs/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link) our our [twitter account](https://twitter.com/bredeleca). For support, bug reports and or feature requests please make sure to read our
-<a href="https://github.com/bredele/contributing-guide" target="_blank">community guideline</a> and use the issue list of this repo and make sure it's not present yet in our reporting checklist.
+<a href="https://github.com/bredele/contributing-guide/blob/master/community.md" target="_blank">community guideline</a> and use the issue list of this repo and make sure it's not present yet in our reporting checklist.
 
 ## Contribution
 
-Vomit is an open source project and would not exist without its community. If you want to participate please make sure to read our <a href="https://github.com/bredele/contributing-guide" target="_blank">guideline</a> before making a pull request. If you have any vomit-related project, component or other let everyone know on our [chat room](https://gitter.im/vomitjs/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link) or in our wiki.
+Vomit is an open source project and would not exist without its community. If you want to participate please make sure to read our <a href="https://github.com/bredele/contributing-guide/blob/master/community.md" target="_blank">guideline</a> before making a pull request. If you have any vomit-related project, component or other let everyone know on our [chat room](https://gitter.im/vomitjs/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link) or in our wiki.
 
 ## License
 
