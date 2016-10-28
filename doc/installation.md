@@ -30,15 +30,6 @@ If you don't use modules bundler, you can include vomit as a global variable by 
 
 Important: because Vomit relies on ES6 syntax, you can only use standalone versions with the latest browsers or compile your code for next generation JavaScript.
 
-## Bower
-
-Vomit is also available on Bower registry.
-
-```shell
-# latest stable
-$ bower install vomit
-```
-
 ## Dev Build
 
 ```shell
