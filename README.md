@@ -25,15 +25,18 @@ var vomit = require('vomit')
 
 function stopwatch(start) {
   // create timer dynamic component
-  var timer = vomit(function(seconds) {
-    return vomit`<div>Seconds Elapsed: ${seconds}</div>`
-  })
+  var timer = vomit(clock)
 
   // update timer dom element every second
   setInterval(() => timer(++start), 1000)
 
   // return timer dom element
   return timer(start)
+}
+
+// create timer static component
+function clock(seconds) {
+  return vomit`<div>Seconds Elapsed: ${seconds}</div>`
 }
 
 document.body.appendChild(stopwatch(0));
