@@ -17,4 +17,4 @@ vomit(carousel, vomit`
 `)
 ```
 
-When using Vomit, you can define how composition works with your component using the tag <content>. This creates an insertion point in the presentation of your component, and the insertion point cherry-picks content to present. This is a way to create flexible components by separating content and presentation into multiple functions.
+When using Vomit, you can define how composition works with your component using the tag `<content>`. This creates an insertion point in the presentation of your component, and the insertion point cherry-picks content to present. This is a way to create flexible components by separating content and presentation into multiple functions.
